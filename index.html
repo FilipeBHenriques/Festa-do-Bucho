@@ -39,6 +39,7 @@
                 "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
             document.getElementById("checkout").addEventListener("click", function (event) {
                 event.preventDefault()
+                console.log("oi")
                 stripe.redirectToCheckout({
                     lineItems: [
                         {
