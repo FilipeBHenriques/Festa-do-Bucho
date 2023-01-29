@@ -36,7 +36,7 @@
             number_ticket = document.getElementById("input")
             const current = Number(number_ticket.value) || 0;
             var stripe = Stripe(
-                "pk_test_51MT7ZiGsmOjGAvzGRfAd1NdxIBaAIuM2B3I0Hl98TcAIslVyhyMHTIrGzV0VZv9kNvtIjbFnCxarw6dWuN0yPzIf00Y54EIzVD")
+                "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
             document.getElementById("checkout").addEventListener("click", function () {
                 stripe.redirectToCheckout({
                     lineItems: [
