@@ -56,18 +56,7 @@
                     });
             })
 
-            document.getElementById("plus").addEventListener("click", event => {
-                event.preventDefault();
-                const current = Number(number_ticket.value) || 0;
 
-                number_ticket.value = current + 1;
-            });
-            document.getElementById("minus").addEventListener("click", event => {
-                event.preventDefault();
-                const current = Number(number_ticket.value) || 0;
-                if (number_ticket.value > 0)
-                    number_ticket.value = current - 1;
-            });
         </script>
 
     </body>
