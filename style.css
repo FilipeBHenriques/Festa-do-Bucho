@@ -89,31 +89,7 @@ label {
     font-size: 17px;
 }
 
-.plus {
-    margin: 0;
-    /* reset your old margin */
-    align-self: center;
-    position: fixed;
-    left: 58%;
-    top: 51%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: rgb(147, 30, 21);
-    position: fixed;
-    will-change: auto;
-}
 
-.minus {
-    margin: 0;
-    /* reset your old margin */
-    align-self: center;
-    position: fixed;
-    left: 46%;
-    top: 51%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: rgb(147, 30, 21);
-}
 
 .input {
     margin: 0;
