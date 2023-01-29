@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3"> </script>
+    <title>
+        Festa do Bucho
+    </title>
+</head>
+
+<div>
+
+    <body class="bg1">
+
+        <button class="butt" id="checkout" type="button" style="
+            height: 7vh;
+            width: 20vh;
+            align-self: center;
+            background-color: rgb(147,30,21);
+
+            text-align: center;
+            line-height: 0px;
+            position: fixed;
+            will-change: auto;
+            border-color: rgb(147,30,21);
+            ">
+            <p style=" color:white; font-size: 20px; text-align: center;">Comprar Bilhete(s)!</p>
+        </button>
+        <button class="plus" id="plus"> +</button>
+        <input class="input" type="number" value="0" id="input">
+        <button class="minus" id="minus"> - </button>
+        <script>
+            number_ticket = document.getElementById("input")
+            const current = Number(number_ticket.value) || 0;
+            var stripe = Stripe(
+                "pk_test_51MT7ZiGsmOjGAvzGRfAd1NdxIBaAIuM2B3I0Hl98TcAIslVyhyMHTIrGzV0VZv9kNvtIjbFnCxarw6dWuN0yPzIf00Y54EIzVD")
+            document.getElementById("checkout").addEventListener("click", function () {
+                stripe.redirectToCheckout({
+                    lineItems: [
+                        {
+                            price: "price_1MVfbpGsmOjGAvzG15uDIJwZ",
+                            quantity: Number(number_ticket.value),
+                        },
+                    ],
+                    mode: "payment",
+                    successUrl: "https://www.google.com",
+                    cancelUrl: "https://www.gmail.com",
+                })
+                    .then(function (result) {
+                        alert(result)
+                    });
+            })
+
+            document.getElementById("plus").addEventListener("click", event => {
+                event.preventDefault();
+                const current = Number(number_ticket.value) || 0;
+
+                number_ticket.value = current + 1;
+            });
+            document.getElementById("minus").addEventListener("click", event => {
+                event.preventDefault();
+                const current = Number(number_ticket.value) || 0;
+                if (number_ticket.value > 0)
+                    number_ticket.value = current - 1;
+            });
+        </script>
+
+    </body>
+</div>
+
+
+</html>
