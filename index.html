@@ -27,36 +27,54 @@
             <p style=" color:white; font-size: 20px; text-align: center;">Comprar Bilhete(s)!</p>
         </button>
 
-        <input class="input" type="number" value="0" id="input">
+        <input class="inputA" type="number"  id="inputA" placeholder="Bilhete Adultos" >
+        <input class="inputC" type="number"  id="inputC" placeholder="Bilhete Crianças" >
 
 
 
-
+        
         <script>
-            number_ticket = document.getElementById("input")
-            const current = Number(number_ticket.value) || 0;
+            
+            
             var stripe = Stripe(
                 "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
             document.getElementById("checkout").addEventListener("click", function (event) {
                 event.preventDefault()
-                console.log("oi")
-                stripe.redirectToCheckout({
-                    lineItems: [
-                        {
-                            price: "price_1Mb24BGsmOjGAvzGgjeKqDgc",
-                            quantity: Number(number_ticket.value),
-                        },
-                    ],
-                    mode: "payment",
-                    successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
-                    cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
-                })
-                    .then(function (result) {
-                        alert(result)
-                    });
+                number_ticket_A = document.getElementById("inputA")||0
+                number_ticket_C = document.getElementById("inputC")||0
+            
+            
+            lineItems = []
+            
+            if (number_ticket_A.value > 0) {
+                
+                lineItems.push({
+                                price: "price_1Mb24BGsmOjGAvzGgjeKqDgc",
+                                quantity: Number(number_ticket_A.value),
+                            })
+            }
+            if (number_ticket_C.value > 0) {
+                
+                lineItems.push({
+                                price: "price_1MbXQpGsmOjGAvzGj6DqGp7Q",
+                                quantity: Number(number_ticket_C.value),
+                            })
+            }
+                
+                    
+                    
+
+                    stripe.redirectToCheckout({
+                        lineItems,
+                        mode: "payment",
+                        successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
+                        cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
+                    })
+                        .then(function (result) {
+                            alert(result)
+                        });
             })
-
-
+        
         </script>
 
     </body>
