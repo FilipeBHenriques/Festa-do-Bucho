@@ -89,6 +89,7 @@ label {
     height: 2vh;
     width: 20vh;
     font-size: 1.4vh;
+    text-align: left;
     left: 52%;
     top: 50%;
     border: 0.1vh solid;
@@ -106,6 +107,7 @@ label {
     height: 2vh;
     width: 20vh;
     font-size: 1.4vh;
+    text-align: left;
     border: 0.1vh solid;
     left: 52%;
     top: 52%;
