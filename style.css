@@ -63,10 +63,7 @@ label {
 .butt {
     margin: 0;
     /* reset your old margin */
-    left: 52%;
-    top: 46%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    
 }
 
 
@@ -89,8 +86,12 @@ label {
     /* reset your old margin */
     align-self: center;
     position: fixed;
+    height: 2vh;
+    width: 20vh;
+    font-size: 1.4vh;
     left: 52%;
-    top: 51%;
+    top: 50%;
+    border: 0.1vh solid;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-color: rgb(147, 30, 21);
@@ -102,8 +103,12 @@ label {
     /* reset your old margin */
     align-self: center;
     position: fixed;
+    height: 2vh;
+    width: 20vh;
+    font-size: 1.4vh;
+    border: 0.1vh solid;
     left: 52%;
-    top: 54%;
+    top: 52%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-color: rgb(147, 30, 21);
@@ -116,9 +121,6 @@ label {
     background-image: url("Bucho.jpeg");
     background-repeat: no-repeat;
     background-position: center;
-
-
-
     background-size: contain;
 }
 

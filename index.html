@@ -17,14 +17,18 @@
             width: 20vh;
             align-self: center;
             background-color: rgb(147,30,21);
-
+            border: 0.1vh solid;
             text-align: center;
             line-height: 0px;
             position: fixed;
             will-change: auto;
-            border-color: rgb(147,30,21);
+            border-color: rgb(1,1,1);
+            left: 52%;
+            top: 45%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             ">
-            <p style=" color:white; font-size: 20px; text-align: center;">Comprar Bilhete(s)!</p>
+            <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
         </button>
 
         <input class="inputA" type="number"  id="inputA" placeholder="Bilhete Adultos" >
@@ -57,6 +61,7 @@
                 
                 lineItems.push({
                                 price: "price_1MbXiHGsmOjGAvzGuIrlEFaj",
+                                
                                 quantity: Number(number_ticket_C.value),
                             })
             }
