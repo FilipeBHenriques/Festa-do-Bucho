@@ -2,6 +2,7 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://js.stripe.com/v3"> </script>
     <title>
         Festa do Bucho
@@ -24,28 +25,86 @@
             will-change: auto;
             border-color: rgb(1,1,1);
             left: 52%;
-            top: 45%;
+            top: 38%;
             -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             ">
             <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
         </button>
 
-        <input class="inputA" type="number"  id="inputA" placeholder="Bilhete Adultos" >
-        <input class="inputC" type="number"  id="inputC" placeholder="Bilhete Crianças" >
+        <input class="inputA" max="999" min="0" type="number"  id="inputA" placeholder="Bilhete Adultos" >
+        <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Bilhete Crianças" >
+        
+            <button class ="payB" id="card" type="button" style="left:49%;top:50%;">
+                <i class="fa fa-credit-card" style="font-size:2.5vh;  "></i>
+                
+            </button>
+
+            <button class ="payB" id="nib" type="button" style="left:55%;top:50%">
+                <p style=" color:white; font-size: 1.4vh; text-align: center;">NIB</p>
+            </button>
+
+        
 
 
 
         
         <script>
-            
+            var method = "card"
+            var selectedCard = 0
+            var selectedNib = 0
+            var NIB = document.getElementById("nib")
+            var CARD = document.getElementById("card")
+            NIB.addEventListener("click",function(event){
+                method = "nib"
+                selectedNib = !selectedNib
+                if(selectedNib){
+                    NIB.style.borderColor ="rgb(4,170,109)";
+                    CARD.style.borderColor = "black";
+                    selectedCard = 0
+                    
+                }
+                if(!selectedNib){
+                    NIB.style.borderColor = "black";
+                }
+             })
+             NIB.addEventListener("mouseover",function(event){
+                NIB.style.borderColor ="rgb(4,170,109)";
+             })
+             CARD.addEventListener("mouseover",function(event){
+                CARD.style.borderColor ="rgb(4,170,109)";
+             })
+             NIB.addEventListener("mouseout",function(event){
+                if(!selectedNib)
+                    NIB.style.borderColor ="black";
+             })
+             CARD.addEventListener("mouseout",function(event){
+                if(!selectedCard)
+                    CARD.style.borderColor ="black";
+             })
+             CARD.addEventListener("click",function(event){
+                method = "card"
+                selectedCard = !selectedCard
+                if(selectedCard){
+                    CARD.style.borderColor = "rgb(4,170,109)";
+                    NIB.style.borderColor = "black";
+                    selectedNib = 0
+                }
+                if(!selectedCard){
+                    CARD.style.borderColor = "black";
+                }
+             })
+
             
             var stripe = Stripe(
                 "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
+
             document.getElementById("checkout").addEventListener("click", function (event) {
-                event.preventDefault()
                 number_ticket_A = document.getElementById("inputA")||0
                 number_ticket_C = document.getElementById("inputC")||0
+                if(method == "card"){
+                event.preventDefault()
+                
             
             
             lineItems = []
@@ -78,7 +137,13 @@
                         .then(function (result) {
                             alert(result)
                         });
-            })
+            }
+            else if(method == "nib"){
+                var preco = number_ticket_A.value * 17.5 + number_ticket_C.value * 10
+                localStorage.setItem("value",preco)
+                window.location.href = "https://filipebhenriques.github.io/Festa-do-Bucho/NIB.html";
+            }
+        })
         
         </script>
 
