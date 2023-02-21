@@ -37,10 +37,10 @@
             <input type="hidden" name="_next" value="https://filipebhenriques.github.io/Festa-do-Bucho/NIB_END.html">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-			<input type="hidden" name="message" value ="" id="myText">
+			<input type="hidden" name="message"  id="message">
 			<script> 
 			var preco = localStorage.getItem("value")
-			document.getElementById("myText").innerHTML = preco;
+			document.getElementById("message").value = preco;
 			</script>
 			<div class="col-xs-12">
 				<input type="submit" class="btn-lrg submit-btn" id="submit" value="Pagamento">
