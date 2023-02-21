@@ -128,7 +128,8 @@ label {
 }
 
 .inputC {
-    margin: 0;
+    margin-bottom: 5px ;
+    margin-top: 1px;
     /* reset your old margin */
     align-self: center;
     position: fixed;
