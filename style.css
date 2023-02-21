@@ -34,7 +34,13 @@
     padding: 0 16px;
 }
 
-
+.container {
+    background-color: #f2f2f2;
+    padding: 5px 20px 15px 20px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    width: 50%;
+}
 
 
 label {
@@ -76,7 +82,7 @@ label {
     border: 0.3vh solid;
     text-align: left;
     line-height: 0px;
-    position: fixed;
+    position: relative;
     will-change: auto;
     border-color: rgb(1,1,1);
     -webkit-transform: translate(-50%, -50%);
@@ -112,7 +118,6 @@ label {
     width: 20vh;
     font-size: 1.4vh;
     text-align: left;
-    display: block;
     left: 52%;
     top: 43%;
     border: 0.1vh solid;
@@ -126,7 +131,6 @@ label {
     margin-bottom: 5px ;
     margin-top: 1px;
     /* reset your old margin */
-    display: block;
     align-self: center;
     position: fixed;
     height: 2vh;
@@ -165,12 +169,3 @@ label {
 
 
 }
-
-.container{
-    display: flex;
-    align-items: baseline;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-
-
