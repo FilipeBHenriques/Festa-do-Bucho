@@ -69,8 +69,7 @@ label {
 
 
 .payB{
-    margin-left: 1px;
-    margin-right: 1px;
+    margin: auto;
     height: 4vh;
     width: 10vh;
     overflow: hidden;
