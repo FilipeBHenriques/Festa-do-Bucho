@@ -69,7 +69,8 @@ label {
 
 
 .payB{
-    margin:0;
+    margin-left: 1px;
+    margin-right: 1px;
     height: 4vh;
     width: 10vh;
     align-self: center;
