@@ -71,7 +71,7 @@ label {
 .payB{
     margin:0;
     height: 4vh;
-    width: 5vw;
+    width: 6vh;
     align-self: center;
     background-color: rgb(147,30,21);
     border: 0.3vh solid;
@@ -177,6 +177,6 @@ label {
 
 @media only screen and (max-width:480px) { 
     .payB {
-      width: 10%;
+      width: 8vh;
     }
 }
