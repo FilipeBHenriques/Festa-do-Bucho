@@ -118,6 +118,7 @@ label {
     width: 20vh;
     font-size: 1.4vh;
     text-align: left;
+    display: block;
     left: 52%;
     top: 43%;
     border: 0.1vh solid;
@@ -131,6 +132,7 @@ label {
     margin-bottom: 5px ;
     margin-top: 1px;
     /* reset your old margin */
+    display: block;
     align-self: center;
     position: fixed;
     height: 2vh;
