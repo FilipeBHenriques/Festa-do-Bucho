@@ -118,8 +118,8 @@ label {
     width: 20vh;
     font-size: 1.4vh;
     text-align: left;
-    left: 52vw;
-    top: 43vh;
+    left: 52%;
+    top: 43%;
     border: 0.1vh solid;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -138,8 +138,8 @@ label {
     font-size: 1.4vh;
     text-align: left;
     border: 0.1vh solid;
-    left: 52vw;
-    top: 45vh;
+    left: 52%;
+    top: 45%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     background-color: rgb(147, 30, 21);
