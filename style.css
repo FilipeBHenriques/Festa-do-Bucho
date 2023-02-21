@@ -69,17 +69,19 @@ label {
 
 
 .payB{
-    margin: auto;
+    margin-left: 1px;
+    margin-right: 1px;
+
     height: 4vh;
     width: 10vh;
     overflow: hidden;
-    display: block;
+    display: inline-block;
     align-self: center;
     background-color: rgb(147,30,21);
     border: 0.3vh solid;
     text-align: left;
     line-height: 0px;
-    position: fixed;
+    position: relative;
     will-change: auto;
     border-color: rgb(1,1,1);
     -webkit-transform: translate(-50%, -50%);
