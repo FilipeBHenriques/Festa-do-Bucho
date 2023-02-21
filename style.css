@@ -73,6 +73,8 @@ label {
     margin-right: 1px;
     height: 4vh;
     width: 10vh;
+    overflow: hidden;
+    display: block;
     align-self: center;
     background-color: rgb(147,30,21);
     border: 0.3vh solid;
