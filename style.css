@@ -81,10 +81,8 @@ label {
     align-items: center;
     height: auto;
     margin-top: -125px;
-    transform-origin: center;
-    transform: scale(1);
-    min-width: 100%;
-    max-width: 100%;
+
+
     
 }
 
