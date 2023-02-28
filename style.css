@@ -203,7 +203,8 @@ body{
 
 @media only screen and (max-width:320px) and (min-width:667px){
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -217,7 +218,8 @@ body{
 @media only screen and (min-width: 320px) 
 and (max-width: 480px){
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -228,7 +230,8 @@ and (max-width: 480px){
 @media only screen and (min-width: 320px) 
 and (max-width: 480px) and (orientation: portrait) {
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -238,7 +241,8 @@ and (max-width: 480px) and (orientation: portrait) {
 @media only screen and (min-width: 320px) 
 and (max-width: 480px) and (orientation: landscape) {
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -251,7 +255,8 @@ iPhone 5, 5S, 5C and 5SE || 320 x 568 || Default, Portrait and Landscape
 @media only screen and (min-width: 320px) 
 and (max-width: 568px){
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -261,7 +266,8 @@ and (max-width: 568px){
 @media only screen and (min-width: 320px) 
 and (max-width: 568px) and (orientation: portrait) {
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -271,7 +277,8 @@ and (max-width: 568px) and (orientation: portrait) {
 @media only screen and (min-width: 320px) 
 and (max-width: 568px) and (orientation: landscape) {
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -284,7 +291,8 @@ iPhone 6, 6S, 7 and 8 || 375 x 667 || Default, Portrait and Landscape
 @media only screen and (min-width: 375px) 
 and (max-width: 667px){ 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -294,7 +302,8 @@ and (max-width: 667px){
 @media only screen and (min-width: 375px) 
 and (max-width: 667px) and (orientation: portrait) { 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -303,7 +312,8 @@ and (max-width: 667px) and (orientation: portrait) {
 @media only screen and (min-width: 375px) 
 and (max-width: 667px) and (orientation: landscape) { 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -316,7 +326,8 @@ iPhone 6+, 7+ and 8+ || 414 x 736 || Default, Portrait and Landscape
 @media only screen and (min-width: 414px) 
 and (max-width: 736px){ 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -325,7 +336,8 @@ and (max-width: 736px){
 @media only screen and (min-width: 414px) 
 and (max-width: 736px) and (orientation: portrait) { 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -336,7 +348,8 @@ and (max-width: 736px) and (orientation: portrait) {
 @media only screen and (min-width: 414px) 
 and (max-width: 736px) and (orientation: landscape) { 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -349,7 +362,8 @@ iPhone X || 375 x 812 || Default, Portrait and Landscape
 @media only screen and (min-width: 375px) 
 and (max-width: 812px){ 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
         width:70%;
         height:70%;
         margin-top: -40vh;
@@ -359,7 +373,8 @@ and (max-width: 812px){
 @media only screen and (min-width: 375px) 
 and (max-width: 812px) and (orientation: portrait) { 
     .center{
-        
+        transform-origin: center;
+        transform: scale(0.5);
     width:70%;
     height:70%;
     margin-top: -40vh;
