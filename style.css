@@ -196,6 +196,8 @@ label {
         zoom:0.5;
         width:70%;
         height:70%;
+        margin-top: -40vh;
+
 
     }
 }
@@ -209,6 +211,7 @@ and (max-width: 480px){
         zoom:0.5;
         width:70%;
         height:70%;
+        margin-top: -40vh;
 
     }
 }
@@ -219,6 +222,7 @@ and (max-width: 480px) and (orientation: portrait) {
         zoom:0.5;
         width:70%;
         height:70%;
+        margin-top: -40vh;
 
     }}
 
@@ -228,6 +232,8 @@ and (max-width: 480px) and (orientation: landscape) {
         zoom:0.5;
         width:70%;
         height:70%;
+        margin-top: -40vh;
+
 
     }}
 
