@@ -26,7 +26,7 @@ body{
     flex: 25%;
 }
 
-.col-50 {
+.col-20 {
     -ms-flex: 50%;
     /* IE10 */
     flex: 50%;
@@ -41,7 +41,7 @@ body{
 }
 
 .col-25,
-.col-50,
+.col-20,
 .col-75 {
     padding: 0 16px;
 }
@@ -92,7 +92,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: auto;
-    margin-top: -50px;
+    margin-top: -20px;
 
 }
 
@@ -206,7 +206,7 @@ body{
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -222,7 +222,7 @@ and (max-width: 480px){
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -235,7 +235,7 @@ and (max-width: 480px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -247,7 +247,7 @@ and (max-width: 480px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -262,7 +262,7 @@ and (max-width: 568px){
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -274,7 +274,7 @@ and (max-width: 568px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -286,7 +286,7 @@ and (max-width: 568px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -301,7 +301,7 @@ and (max-width: 667px){
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 
     }}
 
@@ -311,7 +311,7 @@ and (max-width: 667px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
     }}
@@ -358,7 +358,7 @@ and (max-width: 736px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -373,7 +373,7 @@ and (max-width: 812px){
         
         width:70%;
         height:70%;
-        margin-top: -50vh;
+        margin-top: -20vh;
 transform-origin: center;
         transform: scale(0.5);
 
@@ -386,6 +386,6 @@ and (max-width: 812px) and (orientation: portrait) {
         transform: scale(0.5);
     width:70%;
     height:70%;
-    margin-top: -50vh;
+    margin-top: -20vh;
 
     }}
