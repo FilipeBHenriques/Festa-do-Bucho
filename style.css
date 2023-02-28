@@ -92,7 +92,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: auto;
-    margin-top: -20px;
+    margin-top: -10%;
 
 }
 
@@ -149,23 +149,24 @@ body{
 .inputA {
     
     /* reset your old margin */
-    padding: 5px 40px;
+    padding: 5px;
     margin: 1px 0;
-    font-size: 1.4vh;
+    font-size: 1.2vh;
     text-align: left;
     
+    
     border: 0.1vh solid;
-    width: 150%;
+    width: 135%;
     background-color: rgb(147, 30, 21);
     
 }
 
 .inputC {
-    padding: 5px 40px;
+    padding: 5px    ;
     margin: 1px 0;
     /* reset your old margin */
-    width: 150%;
-    font-size: 1.4vh;
+    width: 135%;
+    font-size: 1.2vh;
     text-align: left;
     border: 0.1vh solid;
     
@@ -206,7 +207,7 @@ body{
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -222,7 +223,7 @@ and (max-width: 480px){
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -235,7 +236,7 @@ and (max-width: 480px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -247,7 +248,7 @@ and (max-width: 480px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -262,7 +263,7 @@ and (max-width: 568px){
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -274,7 +275,7 @@ and (max-width: 568px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -286,7 +287,7 @@ and (max-width: 568px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -301,7 +302,7 @@ and (max-width: 667px){
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
         transform-origin: center;
         transform: scale(0.5);
 
@@ -313,7 +314,7 @@ and (max-width: 667px) and (orientation: portrait) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
     }}
@@ -324,7 +325,7 @@ and (max-width: 667px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
         transform-origin: center;
         transform: scale(0.5);
 
@@ -340,7 +341,7 @@ and (max-width: 736px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
     }}
 
 @media only screen and (min-width: 414px) 
@@ -350,7 +351,7 @@ and (max-width: 736px) and (orientation: portrait) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 
     }
 }
@@ -361,7 +362,7 @@ and (max-width: 736px) and (orientation: landscape) {
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -376,7 +377,7 @@ and (max-width: 812px){
         
         width:70%;
         height:70%;
-        margin-top: -20vh;
+        /*margin-top: -20vh;*/
 transform-origin: center;
         transform: scale(0.5);
 
@@ -388,7 +389,7 @@ and (max-width: 812px) and (orientation: portrait) {
         
     width:70%;
     height:70%;
-    margin-top: -20vh;
+    /*margin-top: -20vh;*/
     transform-origin: center;
         transform: scale(0.5);
 
