@@ -207,7 +207,7 @@ body{
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }
 }
@@ -222,7 +222,7 @@ and (max-width: 480px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }
 }
@@ -234,7 +234,7 @@ and (max-width: 480px) and (orientation: portrait) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -245,7 +245,7 @@ and (max-width: 480px) and (orientation: landscape) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -259,7 +259,7 @@ and (max-width: 568px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -270,7 +270,7 @@ and (max-width: 568px) and (orientation: portrait) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -281,7 +281,7 @@ and (max-width: 568px) and (orientation: landscape) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -295,7 +295,7 @@ and (max-width: 667px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -306,7 +306,7 @@ and (max-width: 667px) and (orientation: portrait) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
     }}
 
 @media only screen and (min-width: 375px) 
@@ -316,7 +316,7 @@ and (max-width: 667px) and (orientation: landscape) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -330,7 +330,7 @@ and (max-width: 736px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
     }}
 
 @media only screen and (min-width: 414px) 
@@ -340,7 +340,7 @@ and (max-width: 736px) and (orientation: portrait) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }
 }
@@ -352,7 +352,7 @@ and (max-width: 736px) and (orientation: landscape) {
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -366,7 +366,7 @@ and (max-width: 812px){
         transform: scale(0.5);
         width:70%;
         height:70%;
-        margin-top: -40vh;
+        margin-top: -30vh;
 
     }}
 
@@ -377,6 +377,6 @@ and (max-width: 812px) and (orientation: portrait) {
         transform: scale(0.5);
     width:70%;
     height:70%;
-    margin-top: -40vh;
+    margin-top: -30vh;
 
     }}
