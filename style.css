@@ -92,7 +92,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: auto;
-    margin-top: -125px;
+    margin-top: -50px;
 
 }
 
@@ -203,11 +203,12 @@ body{
 
 @media only screen and (max-width:320px) and (min-width:667px){
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }
 }
@@ -218,11 +219,12 @@ body{
 @media only screen and (min-width: 320px) 
 and (max-width: 480px){
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }
 }
@@ -230,22 +232,24 @@ and (max-width: 480px){
 @media only screen and (min-width: 320px) 
 and (max-width: 480px) and (orientation: portrait) {
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
 @media only screen and (min-width: 320px) 
 and (max-width: 480px) and (orientation: landscape) {
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
@@ -255,33 +259,36 @@ iPhone 5, 5S, 5C and 5SE || 320 x 568 || Default, Portrait and Landscape
 @media only screen and (min-width: 320px) 
 and (max-width: 568px){
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
 @media only screen and (min-width: 320px) 
 and (max-width: 568px) and (orientation: portrait) {
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
 @media only screen and (min-width: 320px) 
 and (max-width: 568px) and (orientation: landscape) {
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
@@ -291,22 +298,22 @@ iPhone 6, 6S, 7 and 8 || 375 x 667 || Default, Portrait and Landscape
 @media only screen and (min-width: 375px) 
 and (max-width: 667px){ 
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
 
     }}
 
 @media only screen and (min-width: 375px) 
 and (max-width: 667px) and (orientation: portrait) { 
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
     }}
 
 @media only screen and (min-width: 375px) 
@@ -348,11 +355,12 @@ and (max-width: 736px) and (orientation: portrait) {
 @media only screen and (min-width: 414px) 
 and (max-width: 736px) and (orientation: landscape) { 
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
@@ -362,11 +370,12 @@ iPhone X || 375 x 812 || Default, Portrait and Landscape
 @media only screen and (min-width: 375px) 
 and (max-width: 812px){ 
     .center{
-        transform-origin: center;
-        transform: scale(0.5);
+        
         width:70%;
         height:70%;
-        margin-top: -125vh;
+        margin-top: -50vh;
+transform-origin: center;
+        transform: scale(0.5);
 
     }}
 
@@ -377,6 +386,6 @@ and (max-width: 812px) and (orientation: portrait) {
         transform: scale(0.5);
     width:70%;
     height:70%;
-    margin-top: -125vh;
+    margin-top: -50vh;
 
     }}
