@@ -128,9 +128,11 @@
             }
             else if(method == "nib"){
                 var preco = number_ticket_A.value * 17.5 + number_ticket_C.value * 10
+                var C = number_ticket_C.value
+                var A = number_ticket_A.value
                 localStorage.setItem("value",preco)
-                localStorage.setItem("Criança",number_ticket_C.value)
-                localStorage.setItem("Adulto",number_ticket_A.value)
+                localStorage.setItem("Criança",C)
+                localStorage.setItem("Adulto",A)
 
                 window.location.href = "https://filipebhenriques.github.io/Festa-do-Bucho/NIB.html";
             }
