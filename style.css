@@ -1,3 +1,15 @@
+
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+}
+
 .row {
     display: -ms-flexbox;
     /* IE10 */
@@ -195,8 +207,8 @@ label {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
 
@@ -211,8 +223,8 @@ and (max-width: 480px){
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }
@@ -223,8 +235,8 @@ and (max-width: 480px) and (orientation: portrait) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -234,8 +246,8 @@ and (max-width: 480px) and (orientation: landscape) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
 
@@ -249,8 +261,8 @@ and (max-width: 568px){
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -260,8 +272,8 @@ and (max-width: 568px) and (orientation: portrait) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -271,8 +283,8 @@ and (max-width: 568px) and (orientation: landscape) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -285,8 +297,8 @@ and (max-width: 667px){
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -296,8 +308,8 @@ and (max-width: 667px) and (orientation: portrait) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
     }}
 
@@ -306,8 +318,8 @@ and (max-width: 667px) and (orientation: landscape) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -320,8 +332,8 @@ and (max-width: 736px){
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
     }}
 
@@ -330,8 +342,8 @@ and (max-width: 736px) and (orientation: portrait) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }
@@ -342,8 +354,8 @@ and (max-width: 736px) and (orientation: landscape) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -356,8 +368,8 @@ and (max-width: 812px){
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-        width:70%;
-        height:70%;
+        width:70vw;
+        height:70vh;
         margin-top: -40vh;
 
     }}
@@ -367,8 +379,8 @@ and (max-width: 812px) and (orientation: portrait) {
     .center{
         transform:scale(0.5);
 transform-origin: 0 0;
-    width:70%;
-    height:70%;
+    width:70vw;
+    height:70vh;
     margin-top: -40vh;
 
     }}
