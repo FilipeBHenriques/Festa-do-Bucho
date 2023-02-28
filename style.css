@@ -191,7 +191,7 @@ label {
 
 }
 
-@media only screen and (max-device-width:480px){
+@media only screen and (max-device-width:320px){
     .center{
         zoom:0.5;
     }
