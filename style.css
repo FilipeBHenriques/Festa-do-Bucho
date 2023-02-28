@@ -61,33 +61,61 @@ label {
 }
 
 .butt {
-    margin: 0;
+    cursor: pointer;
+    background-color: rgb(147,30,21);
+    border: 0.1vh solid;
+    text-align: center;
+    line-height: 0px;
+    
+    padding: 20px 40px;
+    
+    border-color: rgb(1,1,1);
+                
     /* reset your old margin */
     
 }
 
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: -125px;
+    transform-origin: center;
+    transform: scale(1);
+    min-width: 100%;
+    max-width: 100%;
+    
+}
+
+.button-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 
 .payB{
-    margin-top: 8px;
+    margin-top: 3px;
     margin-left: 1px;
     margin-right: 1px;
-    vertical-align: top;
-    justify-content: space-between;
-    height: 4vh;
-    width: 10vh;
-    overflow: hidden;
-    display: inline-block;
-    align-self: center;
+    padding: 5px 30px;
+    
+    
     background-color: rgb(147,30,21);
     border: 0.3vh solid;
     text-align: left;
     line-height: 0px;
-    position: relative;
-    will-change: auto;
+    
     border-color: rgb(1,1,1);
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    
 }
 
 .payB:hover{
@@ -111,44 +139,38 @@ label {
 
 
 .inputA {
-    margin: 0;
+    
     /* reset your old margin */
-    align-self: center;
-    position: fixed;
-    height: 2vh;
-    width: 20vh;
+    padding: 5px 40px;
+    margin: 1px 0;
     font-size: 1.4vh;
     text-align: left;
-    left: 52%;
-    top: 43%;
+    
     border: 0.1vh solid;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    width: 150%;
     background-color: rgb(147, 30, 21);
     
 }
 
 .inputC {
-    margin-bottom: 5px ;
-    margin-top: 1px;
+    padding: 5px 40px;
+    margin: 1px 0;
     /* reset your old margin */
-    align-self: center;
-    position: fixed;
-    height: 2vh;
-    width: 20vh;
+    width: 150%;
     font-size: 1.4vh;
     text-align: left;
     border: 0.1vh solid;
-    left: 52%;
-    top: 45%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    
     background-color: rgb(147, 30, 21);
 }
 
 .bg1 {
-
-    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
     background-color: rgb(255, 103, 2);
     background-image: url("Bucho.jpeg");
     background-repeat: no-repeat;
