@@ -25,20 +25,20 @@
                 <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
             </button>
             <div class="input-group">
-                <input class="inputA" max="999" min="0" type="number"  id="inputA" placeholder="Adultos (Nº Bilhetes)" >
-                <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Crianças (Nº Bilhetes)" >
+                <input class="inputA" max="999" min="0" type="number"  id="inputA" placeholder="Adultos (Nº Bilhetes)" style="color:white;border-color: black;"  >
+                <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Crianças (Nº Bilhetes)" style="color:white; border-color: black;">
             </div>
             <div class="containerB"> 
                 <p style="color: white; font-size: 1.4vh; text-align: center;">Métodos de pagamento:</p>
                 <div class="button-group">
                     
                     <button class ="payB" id="card" type="button" >
-                        <i class="fa fa-credit-card" style="font-size:2.5vh; color: black; text-align: center;"></i>
+                        <i class="fa fa-credit-card" id="cardtext" style="font-size:2.5vh; color: white; text-align: center;"></i>
                             
                     </button>
                     
                     <button class ="payB" id="nib" type="button">
-                        <p style=" color:black; font-size: 1.4vh; text-align: center; line-height: 0;">NIB</p>
+                        <p id="nibtext"style=" color:white; font-size: 1.4vh; text-align: center; line-height: 0;">NIB</p>
 
                     </button>
                     
@@ -61,6 +61,9 @@
             var popup = document.getElementById("myPopup");
             var popup2 = document.getElementById("myPopup2");
             var tickets = 0;
+            var Ntext = document.getElementById("nibtext")
+            var Ctext = document.getElementById("cardtext")
+
 
             NIB.addEventListener("click",function(event){
                 
@@ -68,13 +71,16 @@
                 selectedNib = !selectedNib
                 if(selectedNib){
                     NIB.style.borderColor ="rgb(4,170,109)";
+                    Ntext.style.color ="rgb(4,170,109)";
                     CARD.style.borderColor = "black";
+                    Ctext.style.color = "white"
                     selectedCard = 0
                     method = "nib"
                     
                 }
                 if(!selectedNib){
                     NIB.style.borderColor = "black";
+                    Ntext.style.color = "white"
                     method = ""
                 }
              })
@@ -98,13 +104,16 @@
                 selectedCard = !selectedCard
                 if(selectedCard){
                     CARD.style.borderColor = "rgb(4,170,109)";
+                    Ctext.style.color = "rgb(4,170,109)";
                     NIB.style.borderColor = "black";
+                    Ntext.style.color = "white"
                     selectedNib = 0
                     method = "card"
                 }
                 if(!selectedCard){
                     CARD.style.borderColor = "black";
                     method = ""
+                    Ctext.style.color = "white";
                 }
              })
 
