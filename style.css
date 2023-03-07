@@ -164,6 +164,7 @@ body{
     /* reset your old margin */
     width: 100%;
     margin: 1px 0;
+    padding: 10px;
     font-size: 1.2vh;
     text-align: left;
     
@@ -186,11 +187,14 @@ body{
     color: white;
   }
 
+  
+
 .inputC {
     
     margin: 1px 0;
     /* reset your old margin */
     width: 100%;
+    padding: 10px;
     font-size: 1.2vh;
     text-align: left;
     border: 0.1vh solid;
