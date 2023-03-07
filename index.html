@@ -15,6 +15,9 @@
 
     <body class="bg1">
         <div class="center">
+            <div class="popup" onclick="myFunction()">
+                <span class="popuptext" id="myPopup">Por favor Selecione o método de pagamento</span>
+              </div> 
             <button class="butt" id="checkout" type="button">
                 <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
             </button>
@@ -22,16 +25,23 @@
                 <input class="inputA" max="999" min="0" type="number"  id="inputA" placeholder="Adultos (Nº Bilhetes)" >
                 <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Crianças (Nº Bilhetes)" >
             </div>
-            <div class="button-group">
-                <button class ="payB" id="card" type="button" >
-                    <i class="fa fa-credit-card" style="font-size:2.5vh; color: black; text-align: center;"></i>
-                        
-                </button>
+            <div class="containerB"> 
+                <p style="color: black; font-size: 1.4vh; text-align: center;">Métodos de pagamento:</p>
+                <div class="button-group">
+                    
+                    <button class ="payB" id="card" type="button" >
+                        <i class="fa fa-credit-card" style="font-size:2.5vh; color: black; text-align: center;"></i>
+                            
+                    </button>
+                    
+                    <button class ="payB" id="nib" type="button">
+                        <p style=" color:black; font-size: 1.4vh; text-align: center; line-height: 0;">NIB</p>
+
+                    </button>
+                    
+                </div>
                 
-                <button class ="payB" id="nib" type="button">
-                    <p style=" color:black; font-size: 1.4vh; text-align: center; line-height: 0;">NIB</p>
-                </button>
-            </div>
+        </div>
         </div>
     </body>
         
@@ -40,22 +50,26 @@
 
         
         <script>
-            var method = "card"
+            var method = ""
             var selectedCard = 0
             var selectedNib = 0
             var NIB = document.getElementById("nib")
             var CARD = document.getElementById("card")
+            var popup = document.getElementById("myPopup");
             NIB.addEventListener("click",function(event){
-                method = "nib"
+                
+                popup.classList.remove("show");
                 selectedNib = !selectedNib
                 if(selectedNib){
                     NIB.style.borderColor ="rgb(4,170,109)";
                     CARD.style.borderColor = "black";
                     selectedCard = 0
+                    method = "nib"
                     
                 }
                 if(!selectedNib){
                     NIB.style.borderColor = "black";
+                    method = ""
                 }
              })
              NIB.addEventListener("mouseover",function(event){
@@ -73,15 +87,18 @@
                     CARD.style.borderColor ="black";
              })
              CARD.addEventListener("click",function(event){
-                method = "card"
+                popup.classList.remove("show");
+                
                 selectedCard = !selectedCard
                 if(selectedCard){
                     CARD.style.borderColor = "rgb(4,170,109)";
                     NIB.style.borderColor = "black";
                     selectedNib = 0
+                    method = "card"
                 }
                 if(!selectedCard){
                     CARD.style.borderColor = "black";
+                    method = ""
                 }
              })
 
@@ -135,6 +152,10 @@
                 localStorage.setItem("Adulto",A)
 
                 window.location.href = "https://filipebhenriques.github.io/Festa-do-Bucho/NIB.html";
+            }
+            else{
+                
+                popup.classList.toggle("show");
             }
         })
         
