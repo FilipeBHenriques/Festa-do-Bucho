@@ -18,6 +18,9 @@
             <div class="popup" onclick="myFunction()">
                 <span class="popuptext" id="myPopup">Por favor Selecione o método de pagamento</span>
               </div> 
+              <div class="popup" onclick="myFunction()">
+                <span class="popuptext" id="myPopup2">Por favor Selecione pelo menos um bilhete</span>
+              </div> 
             <button class="butt" id="checkout" type="button">
                 <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
             </button>
@@ -56,6 +59,9 @@
             var NIB = document.getElementById("nib")
             var CARD = document.getElementById("card")
             var popup = document.getElementById("myPopup");
+            var popup2 = document.getElementById("myPopup2");
+            var tickets = 0;
+
             NIB.addEventListener("click",function(event){
                 
                 popup.classList.remove("show");
@@ -109,7 +115,15 @@
             document.getElementById("checkout").addEventListener("click", function (event) {
                 number_ticket_A = document.getElementById("inputA")||0
                 number_ticket_C = document.getElementById("inputC")||0
-                if(method == "card"){
+                if(number_ticket_C.value + number_ticket_A.value == 0){
+                    popup2.classList.toggle("show")
+                    setTimeout(function(){popup2.classList.remove("show")},3000)
+                }
+                else{
+                    tickets = 1
+                    
+                }
+                if(method == "card" && tickets){
                 event.preventDefault()
                 
             
@@ -143,7 +157,7 @@
                             alert(result)
                         });
             }
-            else if(method == "nib"){
+            else if(method == "nib" && tickets){
                 var preco = number_ticket_A.value * 17.5 + number_ticket_C.value * 10
                 var C = number_ticket_C.value
                 var A = number_ticket_A.value
@@ -154,8 +168,9 @@
                 window.location.href = "https://filipebhenriques.github.io/Festa-do-Bucho/NIB.html";
             }
             else{
+                if(method == "")
+                    popup.classList.toggle("show");
                 
-                popup.classList.toggle("show");
             }
         })
         
