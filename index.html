@@ -83,6 +83,7 @@
                     Ntext.style.color = "white"
                     method = ""
                 }
+                updatePaymentMethod();
              })
              NIB.addEventListener("mouseover",function(event){
                 NIB.style.borderColor ="rgb(4,170,109)";
@@ -115,6 +116,7 @@
                     method = ""
                     Ctext.style.color = "white";
                 }
+                 updatePaymentMethod();
              })
 
             
@@ -184,10 +186,10 @@
         })
 
         
-        var paragraphElement = document.getElementById("metodo");
-    
-        
-        paragraphElement.innerHTML += " " + method;
+        function updatePaymentMethod() {
+            var paragraphElement = document.getElementById("metodo");
+            paragraphElement.innerHTML = "Métodos de pagamento: " + method;
+        }
         
         </script>
 
