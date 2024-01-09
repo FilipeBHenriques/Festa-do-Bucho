@@ -29,7 +29,7 @@
                 <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Crianças (Nº Bilhetes)" style="color:white; border-color: black;">
             </div>
             <div class="containerB"> 
-                <p id="metodo";style="color: white; font-size: 1.4vh; text-align: center;">Métodos de pagamento:</p>
+                <p id="metodo";style="color: white; font-size: 1.2vh; text-align: center;">Métodos de pagamento:</p>
                 <div class="button-group">
                     
                     <button class ="payB" id="card" type="button" >
@@ -75,7 +75,7 @@
                     CARD.style.borderColor = "black";
                     Ctext.style.color = "white"
                     selectedCard = 0
-                    method = "nib"
+                    method = "NIB"
                     
                 }
                 if(!selectedNib){
@@ -109,7 +109,7 @@
                     NIB.style.borderColor = "black";
                     Ntext.style.color = "white"
                     selectedNib = 0
-                    method = "card"
+                    method = "Cartão"
                 }
                 if(!selectedCard){
                     CARD.style.borderColor = "black";
@@ -134,7 +134,7 @@
                     tickets = 1
                     
                 }
-                if(method == "card" && tickets){
+                if(method == "Cartão" && tickets){
                 event.preventDefault()
                 
             
@@ -168,7 +168,7 @@
                             alert(result)
                         });
             }
-            else if(method == "nib" && tickets){
+            else if(method == "NIB" && tickets){
                 var preco = number_ticket_A.value * 17.5 + number_ticket_C.value * 10
                 var C = number_ticket_C.value
                 var A = number_ticket_A.value
