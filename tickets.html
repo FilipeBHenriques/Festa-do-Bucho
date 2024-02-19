@@ -49,7 +49,8 @@
         
         var numberOfTicketsA = document.getElementById("inputA").value;
         var numberOfTicketsC = document.getElementById("inputC").value;
-
+        localStorage.setItem("ticketA", numberOfTicketsA);
+        localStorage.setItem("ticketC", numberOfTicketsC);
         // Calculate the total
         var total = numberOfTicketsA * ticketPriceA + numberOfTicketsC * ticketPriceC ;
         localStorage.setItem("totalValue", total);
