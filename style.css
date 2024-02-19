@@ -74,14 +74,14 @@ body{
 
 .butt {
     cursor: pointer;
-    background-color: rgb(147,30,21);
+    background-color: rgb(73, 65, 26);
     border: 0.1vh solid;
     text-align: center;
     line-height: 0px;
     
     padding: 20px 40px;
     
-    border-color: rgb(1,1,1);
+    border-color: white;
                 
     /* reset your old margin */
     
@@ -100,13 +100,25 @@ body{
     flex-direction: column;
     align-items: center;
     height: auto;
-    margin-top: -12%;
+    margin-top: -5%;
+    margin-left: 22%;
+
+}
+
+.center2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    margin-top: 5%;
+    
+    
 
 }
 
 .button-group{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     margin-bottom: 10px;
 }
@@ -130,12 +142,13 @@ body{
     padding: 5px 30px;
     
     
-    background-color: rgb(147,30,21);
+    background-color:  rgb(73, 65, 26);
     border: 0.3vh solid;
     text-align: left;
     line-height: 0px;
     
-    border-color: rgb(1,1,1);
+    border-color: white;
+
     
 }
 
@@ -168,10 +181,10 @@ body{
     font-size: 1.2vh;
     text-align: left;
     
-    
+    border-color: white;
     border: 0.1vh solid;
     
-    background-color: rgb(147, 30, 21);
+    background-color:  rgb(73, 65, 26);
     
 }
 
@@ -198,8 +211,9 @@ body{
     font-size: 1.2vh;
     text-align: left;
     border: 0.1vh solid;
+    border-color: white;
     
-    background-color: rgb(147, 30, 21);
+    background-color:  rgb(73, 65, 26) ;
 }
 
 .bg1 {
@@ -209,13 +223,26 @@ body{
     margin: 0;
     padding: 0;
     
-    background-color: rgb(255, 103, 2);
-    background-image: url("Bucho.jpeg");
+    background-color: rgb(73, 65, 26);
+    background-image: url("bucho\ com\ circulos.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
 }
 
+.bg2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    
+    background-color: rgb(73, 65, 26);
+    background-image: url("bucho\ sem\ circulos.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
 
 .formD{
     width: 10vh;
