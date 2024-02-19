@@ -141,8 +141,8 @@
             "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
 
         document.getElementById("checkout").addEventListener("click", function (event) {
-            number_ticket_A = document.getElementById("ticketA")||0
-            number_ticket_C = document.getElementById("ticketC")||0
+            number_ticket_A = localStorage.getItem("ticketA")||0
+            number_ticket_C = localStorage.getItem("ticketC")||0
             console.log(number_ticket_A.value)
             console.log(number_ticket_C.value)
             if(number_ticket_C.value + number_ticket_A.value == 0){
