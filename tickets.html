@@ -1,0 +1,63 @@
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Festa do Bucho</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+</head>
+
+<body class="bg2">
+    <div class="center2">
+        <div class="popup" onclick="myFunction()">
+            <span class="popuptext" id="myPopup2">Por favor Selecione pelo menos um bilhete</span>
+        </div>
+        <div class="input-group" style="display: flex; justify-content: space-around; align-items: baseline;">
+            <div style="display: flex; align-items: center;">
+                <p style=" color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Bilhetes Adultos(<span id="adulto"></span>):</p>
+                <input class="inputA" max="999" min="0" type="number" id="inputA" placeholder="0" style="color:white; border-color: white; width: 50px;">
+            </div>
+            <div style="display: flex; align-items: center;">
+                <p style="color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Bilhetes Criança(<span id="criança"></span>):</p>
+                <input class="inputC" max="999" min="0" type="number" id="inputC" placeholder="0" style="color:white; border-color: white; width: 50px;">
+            </div>
+        </div>
+        <p style=" color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Total:<span id="total">0</span>€</p>
+        
+        <button class="butt" id="paymentBtn" type="button" onclick="redirectToPayment()">
+            <p style="color:white; font-size: 1.4vh; text-align: center;">Pagamento</p>
+        </button>
+    </div>
+
+    <script>
+        function redirectToPayment() {
+            window.location.href = 'payment.html';
+        }
+        // Assuming you have a JavaScript variable named ticketPrice
+        var ticketPriceA = 9; // Replace with your actual ticket price
+        var ticketPriceC = 8; // Replace with your actual ticket price
+
+    // Update the text with the ticket price
+    document.getElementById("adulto").innerText = ticketPriceA + "€";
+    document.getElementById("criança").innerText = ticketPriceC + "€";
+    document.getElementById("inputA").addEventListener("change", updateTotal);
+    document.getElementById("inputC").addEventListener("change", updateTotal);
+
+    function updateTotal() {
+        // Get the number of tickets from the input
+        
+        var numberOfTicketsA = document.getElementById("inputA").value;
+        var numberOfTicketsC = document.getElementById("inputC").value;
+
+        // Calculate the total
+        var total = numberOfTicketsA * ticketPriceA + numberOfTicketsC * ticketPriceC ;
+        localStorage.setItem("totalValue", total);
+
+        // Update the total in the HTML
+        document.getElementById("total").innerText = total;
+    }
+    </script>
+</body>
+
+</html>

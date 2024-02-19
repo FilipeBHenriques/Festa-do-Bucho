@@ -4,197 +4,23 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://js.stripe.com/v3"> </script>
-    <title>
-        Festa do Bucho
-    </title>
-    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
+    <title>Festa do Bucho</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
 </head>
 
+<body class="bg1">
+    <div class="center">
+        <button class="butt" id="checkout" type="button" onclick="redirectToTickets()">
+            <p style="color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
+        </button>
+    </div>
 
-
-    <body class="bg1">
-        <div class="center">
-            <div class="popup" onclick="myFunction()">
-                <span class="popuptext" id="myPopup">Por favor Selecione o método de pagamento</span>
-              </div> 
-              <div class="popup" onclick="myFunction()">
-                <span class="popuptext" id="myPopup2">Por favor Selecione pelo menos um bilhete</span>
-              </div> 
-            <button class="butt" id="checkout" type="button">
-                <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
-            </button>
-            <div class="input-group">
-                <input class="inputA" max="999" min="0" type="number"  id="inputA" placeholder="Adultos (Nº Bilhetes)" style="color:white;border-color: black;"  >
-                <input class="inputC" max="999" min="0"     type="number"  id="inputC" placeholder="Crianças (Nº Bilhetes)" style="color:white; border-color: black;">
-            </div>
-            <div class="containerB"> 
-                <p id="metodo";style="color: white; font-size: 1.2vh; text-align: center;">Métodos de pagamento:</p>
-                <div class="button-group">
-                    
-                    <button class ="payB" id="card" type="button" >
-                        <i class="fa fa-credit-card" id="cardtext" style="font-size:2.5vh; color: white; text-align: center;"></i>
-                            
-                    </button>
-                    
-                    <button class ="payB" id="nib" type="button">
-                        <p id="nibtext"style=" color:white; font-size: 1.4vh; text-align: center; line-height: 0;">NIB</p>
-
-                    </button>
-                    
-                </div>
-                
-        </div>
-        </div>
-    </body>
-        
-
-
-
-        
-        <script>
-            var method = ""
-            var selectedCard = 0
-            var selectedNib = 0
-            var NIB = document.getElementById("nib")
-            var CARD = document.getElementById("card")
-            var popup = document.getElementById("myPopup");
-            var popup2 = document.getElementById("myPopup2");
-            var tickets = 0;
-            var Ntext = document.getElementById("nibtext")
-            var Ctext = document.getElementById("cardtext")
-
-
-            NIB.addEventListener("click",function(event){
-                
-                popup.classList.remove("show");
-                selectedNib = !selectedNib
-                if(selectedNib){
-                    NIB.style.borderColor ="rgb(4,170,109)";
-                    Ntext.style.color ="rgb(4,170,109)";
-                    CARD.style.borderColor = "black";
-                    Ctext.style.color = "white"
-                    selectedCard = 0
-                    method = "NIB"
-                    
-                }
-                if(!selectedNib){
-                    NIB.style.borderColor = "black";
-                    Ntext.style.color = "white"
-                    method = ""
-                }
-                updatePaymentMethod();
-             })
-             NIB.addEventListener("mouseover",function(event){
-                NIB.style.borderColor ="rgb(4,170,109)";
-             })
-             CARD.addEventListener("mouseover",function(event){
-                CARD.style.borderColor ="rgb(4,170,109)";
-             })
-             NIB.addEventListener("mouseout",function(event){
-                if(!selectedNib)
-                    NIB.style.borderColor ="black";
-             })
-             CARD.addEventListener("mouseout",function(event){
-                if(!selectedCard)
-                    CARD.style.borderColor ="black";
-             })
-             CARD.addEventListener("click",function(event){
-                popup.classList.remove("show");
-                
-                selectedCard = !selectedCard
-                if(selectedCard){
-                    CARD.style.borderColor = "rgb(4,170,109)";
-                    Ctext.style.color = "rgb(4,170,109)";
-                    NIB.style.borderColor = "black";
-                    Ntext.style.color = "white"
-                    selectedNib = 0
-                    method = "Cartão"
-                }
-                if(!selectedCard){
-                    CARD.style.borderColor = "black";
-                    method = ""
-                    Ctext.style.color = "white";
-                }
-                 updatePaymentMethod();
-             })
-
-            
-            var stripe = Stripe(
-                "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
-
-            document.getElementById("checkout").addEventListener("click", function (event) {
-                number_ticket_A = document.getElementById("inputA")||0
-                number_ticket_C = document.getElementById("inputC")||0
-                if(number_ticket_C.value + number_ticket_A.value == 0){
-                    popup2.classList.toggle("show")
-                    setTimeout(function(){popup2.classList.remove("show")},3000)
-                }
-                else{
-                    tickets = 1
-                    
-                }
-                if(method == "Cartão" && tickets){
-                event.preventDefault()
-                
-            
-            
-            lineItems = []
-            
-            if (number_ticket_A.value > 0) {
-                
-                lineItems.push({
-                                price: "price_1Mb24BGsmOjGAvzGgjeKqDgc",
-                                quantity: Number(number_ticket_A.value),
-                            })
-            }
-            if (number_ticket_C.value > 0) {
-                
-                lineItems.push({
-                                price: "price_1MbXiHGsmOjGAvzGuIrlEFaj",
-                                
-                                quantity: Number(number_ticket_C.value),
-                            })
-            }
-                
-                    
-                    stripe.redirectToCheckout({
-                        lineItems,
-                        mode: "payment",
-                        successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
-                        cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
-                    })
-                        .then(function (result) {
-                            alert(result)
-                        });
-            }
-            else if(method == "NIB" && tickets){
-                var preco = number_ticket_A.value * 17.5 + number_ticket_C.value * 10
-                var C = number_ticket_C.value
-                var A = number_ticket_A.value
-                localStorage.setItem("value",preco)
-                localStorage.setItem("Criança",C)
-                localStorage.setItem("Adulto",A)
-
-                window.location.href = "https://filipebhenriques.github.io/Festa-do-Bucho/NIB.html";
-            }
-            else{
-                if(method == "")
-                    popup.classList.toggle("show");
-                
-            }
-        })
-
-        
-        function updatePaymentMethod() {
-            var paragraphElement = document.getElementById("metodo");
-            paragraphElement.innerHTML = "Métodos de pagamento: " + method;
+    <script>
+        function redirectToTickets() {
+            window.location.href = 'tickets.html';
         }
-        
-        </script>
-
-    
-
-
+    </script>
+</body>
 
 </html>
+
