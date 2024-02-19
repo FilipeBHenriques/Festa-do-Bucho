@@ -31,8 +31,29 @@
     </div>
 
     <script>
+        var tickets = 0
+    var popup2 = document.getElementById("myPopup2");
+
+    document.getElementById("paymentBtn").addEventListener("click", function (event) {
+        number_ticket_A = document.getElementById("inputA") || 0;
+        number_ticket_C = document.getElementById("inputC") || 0;
+        console.log(number_ticket_A.value);
+        console.log(number_ticket_C.value);
+        if (Number(number_ticket_C.value) + Number(number_ticket_A.value) === 0) {
+            popup2.classList.toggle("show");
+            setTimeout(function () {
+                popup2.classList.remove("show");
+            }, 3000);
+        }
+        else{
+                tickets = 1
+                
+            }
+        })
         function redirectToPayment() {
-            window.location.href = 'payment.html';
+            if (tickets == 1){
+                window.location.href = 'payment.html';
+            }
         }
         // Assuming you have a JavaScript variable named ticketPrice
         var ticketPriceA = 21.0; // Replace with your actual ticket price
