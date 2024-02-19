@@ -60,7 +60,7 @@
         var ticketPriceC = 12.5; // Replace with your actual ticket price
 
     // Update the text with the ticket price
-    document.getElementById("adulto").innerText = ticketPriceA + "€";
+    document.getElementById("adulto").innerText = ticketPriceA.toFixed(1) + "€";
     document.getElementById("criança").innerText = ticketPriceC + "€";
     document.getElementById("inputA").addEventListener("change", updateTotal);
     document.getElementById("inputC").addEventListener("change", updateTotal);
