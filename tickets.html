@@ -70,6 +70,9 @@
         
         var numberOfTicketsA = document.getElementById("inputA").value;
         var numberOfTicketsC = document.getElementById("inputC").value;
+        if( numberOfTicketsA !=0 || numberOfTicketsC != 0){
+            tickets = 1
+        }
         localStorage.setItem("ticketA", numberOfTicketsA);
         localStorage.setItem("ticketC", numberOfTicketsC);
         // Calculate the total
