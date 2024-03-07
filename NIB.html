@@ -18,23 +18,23 @@
         <form action="https://formsubmit.co/festabucho@gmail.com" method="POST">
 			<div class="col-xs-12">
 				<div class="styled-input wide">
-					<label for="name">Nome</label> 
-					<input type="text" id="name" name="name" required />
-					
+					 
+					<input type="text" id="nameInput" name="name" required />
+					<label for="name">Nome</label>
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
 				<div class="styled-input">
-					<label for="email">Email</label> 
-					<input type="text" id="email" name="email" required />
 					
+					<input type="text" id="email" name="email" required />
+					<label for="email">Email</label> 
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
 				<div class="styled-input" style="float:right;">
-					<label for="phone">Telefone</label> 
-					<input type="text" id="phone" name= "phone" required />
 					
+					<input type="text" id="phone" name= "phone" required />
+					<label for="phone">Telefone</label> 
 				</div>
 			</div>
             <input type="hidden" name="_next" value="https://filipebhenriques.github.io/Festa-do-Bucho/NIB_END.html">
@@ -47,6 +47,14 @@
         	var Crianças = localStorage.getItem("Criança")
 			var message = preco + "( Bilhetes Criança: " + Crianças + " | Bilhetes Adulto: " + Adultos + ")"
 			document.getElementById("message").value = message;
+			document.getElementById('nameInput').addEventListener('input', function() {
+    		var label = document.getElementById('nameInput');
+			if (this.value.trim() !== '') {
+			label.classList.add('hidden-label');
+			} else {
+			label.classList.remove('hidden-label');
+			}
+			});
 			</script>
 			<div class="col-xs-12">
 				<input type="submit" class="btn-lrg submit-btn" id="submit" value="Pagamento">
