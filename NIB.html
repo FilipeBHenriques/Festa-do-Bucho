@@ -1,56 +1,44 @@
-<html>
-
-<head>
-    <link rel="stylesheet" href="style2.css">
-    <title>
-        Festa do Bucho
-    </title>
-</head>
-
 <div class="container">
-	<div class="row">
-			<h1>Deixe-nos o seu Contacto</h1>
-	</div>
-	<div class="row">
-			<h4 style="text-align:center">De seguida Procederemos ao pagamento</h4>
-	</div>
-	<div class="row input-container">
+    <div class="row">
+        <h1>Deixe-nos o seu Contacto</h1>
+    </div>
+    <div class="row">
+        <h4 style="text-align:center">De seguida Procederemos ao pagamento</h4>
+    </div>
+    <div class="row input-container">
         <form action="https://formsubmit.co/festabucho@gmail.com" method="POST">
-			<div class="col-xs-12">
-				<div class="styled-input wide">
+            <div class="col-xs-12">
+                <div class="styled-input wide">
                     <label for="name">Nome</label>
                     <input type="text" id="name" name="name" required />
                 </div>
-			</div>
-			<div class="col-md-6 col-sm-12">
-				<div class="styled-input">
-                    <label for="email">Email</label> 
-					<input type="text" name="email" required />
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-12">
-				<div class="styled-input" style="float:right;">
-                    <label for="phone">Telefone</label> 
-					<input type="text" name= "phone" required />
-
-				</div>
-			</div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="styled-input">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" required />
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="styled-input" style="float:right;">
+                    <label for="phone">Telefone</label>
+                    <input type="text" id="phone" name="phone" required />
+                </div>
+            </div>
             <input type="hidden" name="_next" value="https://filipebhenriques.github.io/Festa-do-Bucho/NIB_END.html">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
-			<input type="hidden" name="message"  id="message">
-			<script> 
-			var preco = localStorage.getItem("value")
-			var Adultos = localStorage.getItem("Adulto")
-        	var Crianças = localStorage.getItem("Criança")
-			var message = preco + "( Bilhetes Criança: " + Crianças + " | Bilhetes Adulto: " + Adultos + ")"
-			document.getElementById("message").value = message;
-			</script>
-			<div class="col-xs-12">
-				<input type="submit" class="btn-lrg submit-btn" id="submit" value="Pagamento">
-                
-			</div>
+            <input type="hidden" name="message" id="message">
+            <script>
+                var preco = localStorage.getItem("value");
+                var Adultos = localStorage.getItem("Adulto");
+                var Crianças = localStorage.getItem("Criança");
+                var message = preco + "( Bilhetes Criança: " + Crianças + " | Bilhetes Adulto: " + Adultos + ")";
+                document.getElementById("message").value = message;
+            </script>
+            <div class="col-xs-12">
+                <input type="submit" class="btn-lrg submit-btn" id="submit" value="Pagamento">
+            </div>
         </form>
-        
-	</div>
+    </div>
 </div>
