@@ -205,10 +205,11 @@
         selectedNib = 0;
         method = "mbway";
         
-        const url = `https://ifthenpay.com/api/gateway/paybylink/YYB-729736`;
+        //const url = `https://ifthenpay.com/api/gateway/paybylink/YYB-729736`;
+        const url = 'https://ifthenpay.com/api/spg/payment/mbway';
 
         // Define the JSON body
-        const requestBody = {
+        /*const requestBody = {
         "id": "1234",
         "amount": "21.50",
         "description": "Encomenda 123",
@@ -218,11 +219,24 @@
         "selected_method": "2",
         "btnCloseUrl": "http://url.com",
         "btnCloseLabel": "Texto do Botão"
-        };
+        };*/
+
+        const requestBody = {
+        "mbWayKey": "YYB-729736", //(texto) obrigatório (atribuído pela ifthenpay)
+        "orderId": "1", //(texto) obrigatório (máximo 15 caracteres)
+        "amount": "1", //(texto) obrigatório (separador decimal ".")
+        "mobileNumber": "351#934695862", //(texto) obrigatório
+        "email": "filipebh2001@gmail.com", //(texto) opcional (máximo 100 caracteres)
+        "description": "teste", //(texto) opcional (máximo 100 caracteres)
+        }
 
         // Send the POST request
         fetch(url, {
         method: "POST",
+        
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(requestBody)
         })
         .then(response => {
