@@ -140,7 +140,7 @@
         var stripe = Stripe(
             "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
 
-       document.getElementById("checkout").addEventListener("click", function (event) {
+    document.getElementById("checkout").addEventListener("click", function (event) {
     number_ticket_A = localStorage.getItem("ticketA") || 0;
     number_ticket_C = localStorage.getItem("ticketC") || 0;
     console.log(number_ticket_A);
@@ -247,7 +247,7 @@
                 console.error("Error:", error);
                 // Handle errors appropriately
             });
-        window.location.href = "soon.html";
+        
     } else {
         if (method == "")
             popup.classList.toggle("show");
