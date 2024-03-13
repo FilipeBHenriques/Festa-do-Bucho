@@ -204,12 +204,12 @@
         selectedCard = 0;
         selectedNib = 0;
         method = "mbway";
-        
+        /*
         //const url = `https://ifthenpay.com/api/gateway/paybylink/YYB-729736`;
         const url = 'https://ifthenpay.com/api/spg/payment/mbway';
 
         // Define the JSON body
-        /*const requestBody = {
+        const requestBody = {
         "id": "1234",
         "amount": "21.50",
         "description": "Encomenda 123",
@@ -219,16 +219,16 @@
         "selected_method": "2",
         "btnCloseUrl": "http://url.com",
         "btnCloseLabel": "Texto do Botão"
-        };*/
+        };
 
-        const requestBody = {
+        /*const requestBody = {
         "mbWayKey": "YYB-729736", //(texto) obrigatório (atribuído pela ifthenpay)
         "orderId": "1", //(texto) obrigatório (máximo 15 caracteres)
         "amount": "1", //(texto) obrigatório (separador decimal ".")
         "mobileNumber": "351#934695862", //(texto) obrigatório
         "email": "filipebh2001@gmail.com", //(texto) opcional (máximo 100 caracteres)
         "description": "teste", //(texto) opcional (máximo 100 caracteres)
-        }
+        }*/
 
         // Send the POST request
         fetch(url, {
@@ -252,6 +252,66 @@
         .catch(error => {
         console.error("Error:", error);
         // Handle errors appropriately
+        });*/
+
+
+
+        const express = require('express');
+const fetch = require('node-fetch'); // Import fetch for making HTTP requests
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+const app = express();
+
+// Define a proxy route
+app.use('/api/gateway/paybylink', createProxyMiddleware({
+    target: 'https://ifthenpay.com',
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api/gateway/paybylink': '/api/gateway/paybylink'
+    },
+    // Configure CORS headers for the proxy route
+    onProxyRes: function(proxyRes) {
+        proxyRes.headers['Access-Control-Allow-Origin'] = 'YOUR_ORIGIN_HERE';
+        // Add other CORS headers if necessary
+    }
+}));
+
+// Define your endpoint route
+app.get('/your-custom-endpoint', async (req, res) => {
+    try {
+        const url = 'https://ifthenpay.com/api/spg/payment/mbway';
+        const requestBody = {
+            "id": "1234",
+            "amount": "21.50",
+            "description": "Encomenda 123",
+            "lang": "en",
+            "expiredate": "",
+            "accounts": "MBWAY|YYB-729736;",
+            "selected_method": "2",
+            "btnCloseUrl": "http://url.com",
+            "btnCloseLabel": "Texto do Botão"
+        };
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(requestBody),
+        });
+
+        const responseData = await response.json();
+        res.json(responseData);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+        });
+
+        // Start the server
+        const PORT = process.env.PORT || 5000;
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
         });
 
 
