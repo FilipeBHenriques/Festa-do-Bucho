@@ -213,23 +213,8 @@
         var expiredate = "";
         var accounts = "MBWAY|YYB-729736;";
         var selectedMethod = "2";
-        var btnCloseUrl = "http://url.com";
-        var btnCloseLabel = "Texto do Botão";
-        fetch("https://ifthenpay.com/api/gateway/paybylink/get?gatewaykey=YYB-729736&id=12345&amount=100.50&description=order%20123456&lang=en&expiredate=&accounts=MBWAY|XXX-000000;&selected_method=2", {
-  method: "GET",
-  mode: "no-cors"
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  // Handle response as needed (limited due to no-cors mode)
-})
-.catch(error => {
-  console.error("Error:", error);
-  // Handle errors appropriately
-});
-
+        var btnCloseUrl = "end.html";
+        var btnCloseLabel = "Close";
 
         var url = `https://ifthenpay.com/api/gateway/paybylink/get?gatewaykey=${gatewayKey}&id=${orderId}&amount=${amount}&description=${description}&lang=${lang}&expiredate=${expiredate}&accounts=${accounts}&selected_method=${selectedMethod}&btnCloseUrl=${btnCloseUrl}&btnCloseLabel=${btnCloseLabel}`;
 
