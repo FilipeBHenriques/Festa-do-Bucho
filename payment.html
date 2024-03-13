@@ -204,49 +204,36 @@
         selectedCard = 0;
         selectedNib = 0;
         method = "mbway";
+        
+        var gatewayKey = "YYB-729736";
+        var orderId = "1234";
+        var amount = preco.toString();
+        var description = "Bucho 2024";
+        var lang = "en";
+        var expiredate = "";
+        var accounts = "MBWAY|YYB-729736;";
+        var selectedMethod = "2";
+        var btnCloseUrl = "http://url.com";
+        var btnCloseLabel = "Texto do Botão";
 
-        // Constructing the JSON body
-        var requestBody = {
-            "id": "1234",
-            "amount": preco.toString(),
-            "description": "Encomenda 123",
-            "lang": "en",
-            "expiredate": "",
-            "accounts": "MBWAY|XXX-000000;",
-            "selected_method": "2",
-            "btnCloseUrl": "end.html",
-            "btnCloseLabel": "Close"
-        };
+        var url = `https://ifthenpay.com/api/gateway/paybylink/get?gatewaykey=${gatewayKey}&id=${orderId}&amount=${amount}&description=${description}&lang=${lang}&expiredate=${expiredate}&accounts=${accounts}&selected_method=${selectedMethod}&btnCloseUrl=${btnCloseUrl}&btnCloseLabel=${btnCloseLabel}`;
 
-        // Placeholder substitution for [GATEWAY_KEY]
-        var gatewayKey = "YYB-729736"; // Replace with the actual gateway key
-        requestBody.accounts = requestBody.accounts.replace("XXX-000000", gatewayKey);
-
-        // Convert the JSON object to a string
-        var jsonBody = JSON.stringify(requestBody);
-
-        // Sending the POST request
-        fetch("https://ifthenpay.com/api/gateway/paybylink/" + gatewayKey, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: jsonBody
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log("Response:", data);
-                // Handle response data as needed
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                // Handle errors appropriately
-            });
+        // Send the GET request
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+            throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Payment URL:", data); // Handle the payment URL as needed
+            window.location.href = data; // Redirect the user to the payment URL
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            // Handle errors appropriately
+        });
         
     } else {
         if (method == "")
