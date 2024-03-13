@@ -140,81 +140,73 @@
         var stripe = Stripe(
             "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
 
-        document.getElementById("checkout").addEventListener("click", function (event) {
-            number_ticket_A = localStorage.getItem("ticketA")||0
-            number_ticket_C = localStorage.getItem("ticketC")||0
-            console.log(number_ticket_A)
-            console.log(number_ticket_C)
-            if(number_ticket_C + number_ticket_A == 0){
-                popup2.classList.toggle("show")
-                setTimeout(function(){popup2.classList.remove("show")},3000)
-            }
-            else{
-                tickets = 1
-                
-            }
-            if(method == "card" && tickets){
-            event.preventDefault()
-            
-        
-        
-        lineItems = []
-        
+       document.getElementById("checkout").addEventListener("click", function (event) {
+    number_ticket_A = localStorage.getItem("ticketA") || 0;
+    number_ticket_C = localStorage.getItem("ticketC") || 0;
+    console.log(number_ticket_A);
+    console.log(number_ticket_C);
+    if (number_ticket_C + number_ticket_A == 0) {
+        popup2.classList.toggle("show");
+        setTimeout(function () {
+            popup2.classList.remove("show");
+        }, 3000);
+    } else {
+        tickets = 1;
+    }
+    if (method == "card" && tickets) {
+        event.preventDefault();
+
+        lineItems = [];
+
         if (number_ticket_A > 0) {
-            
             lineItems.push({
-                            price: "price_1OlbQZGsmOjGAvzGdFiDaItt",
-                            quantity: Number(number_ticket_A),
-                        })
+                price: "price_1OlbQZGsmOjGAvzGdFiDaItt",
+                quantity: Number(number_ticket_A),
+            });
         }
         if (number_ticket_C > 0) {
-            
             lineItems.push({
-                            price: "price_1OlbRPGsmOjGAvzGO697i4gH",
-                            
-                            quantity: Number(number_ticket_C),
-                        })
+                price: "price_1OlbRPGsmOjGAvzGO697i4gH",
+                quantity: Number(number_ticket_C),
+            });
         }
-            
-                
-                stripe.redirectToCheckout({
-                    lineItems,
-                    mode: "payment",
-                    successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
-                    cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
-                })
-                    .then(function (result) {
-                        alert(result)
-                    });
-        }
-        else if(method == "nib" && tickets){
-            var preco = number_ticket_A * 21 + number_ticket_C * 12.5
-            var C = number_ticket_C
-            var A = number_ticket_A
-            localStorage.setItem("value",preco)
-            localStorage.setItem("Criança",C)
-            localStorage.setItem("Adulto",A)
 
-            window.location.href = "NIB.html";
-        }
-        else if(method == "mbway" && tickets){
-            var preco = number_ticket_A * 21 + number_ticket_C * 12.5
-            var C = number_ticket_C
-            var A = number_ticket_A
-            localStorage.setItem("value",preco)
-            localStorage.setItem("Criança",C)
-            localStorage.setItem("Adulto",A)
-            MBWAY.style.borderColor = "rgb(4,170,109)";
-            CARD.style.borderColor = "white";
-            Ctext.style.color = "white";
-            NIB.style.borderColor = "white";
-            Ntext.style.color = "white";
-            selectedCard = 0;
-            selectedNib = 0;
-            method = "mbway";
+        stripe.redirectToCheckout({
+                lineItems,
+                mode: "payment",
+                successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
+                cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
+            })
+            .then(function (result) {
+                alert(result);
+            });
+    } else if (method == "nib" && tickets) {
+        var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
+        var C = number_ticket_C;
+        var A = number_ticket_A;
+        localStorage.setItem("value", preco);
+        localStorage.setItem("Criança", C);
+        localStorage.setItem("Adulto", A);
 
-            // Constructing the JSON body
-            var requestBody = {
+        window.location.href = "NIB.html";
+    } else if (method == "mbway" && tickets) {
+        var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
+        var C = number_ticket_C;
+        var A = number_ticket_A;
+        localStorage.setItem("value", preco);
+        localStorage.setItem("Criança", C);
+        localStorage.setItem("Adulto", A);
+        MBWAY.style.borderColor = "rgb(4,170,109)";
+        CARD.style.borderColor = "white";
+        Ctext.style.color = "white";
+        NIB.style.borderColor = "white";
+        Ntext.style.color = "white";
+        selectedCard = 0;
+        selectedNib = 0;
+        method = "mbway";
+
+        // Constructing the JSON body
+        var requestBody = {
             "id": "1234",
             "amount": preco.toString(),
             "description": "Encomenda 123",
@@ -224,46 +216,45 @@
             "selected_method": "2",
             "btnCloseUrl": "end.html",
             "btnCloseLabel": "Close"
-            };
+        };
 
-            // Placeholder substitution for [GATEWAY_KEY]
-            var gatewayKey = "YYB-729736"; // Replace with the actual gateway key
-            requestBody.accounts = requestBody.accounts.replace("XXX-000000", gatewayKey);
+        // Placeholder substitution for [GATEWAY_KEY]
+        var gatewayKey = "YYB-729736"; // Replace with the actual gateway key
+        requestBody.accounts = requestBody.accounts.replace("XXX-000000", gatewayKey);
 
-            // Convert the JSON object to a string
-            var jsonBody = JSON.stringify(requestBody);
-        
-            // Sending the POST request
-            fetch("https://ifthenpay.com/api/gateway/paybylink/" + gatewayKey, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: jsonBody
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log("Response:", data);
-            // Handle response data as needed
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            // Handle errors appropriately
-        });
+        // Convert the JSON object to a string
+        var jsonBody = JSON.stringify(requestBody);
+
+        // Sending the POST request
+        fetch("https://ifthenpay.com/api/gateway/paybylink/" + gatewayKey, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: jsonBody
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Response:", data);
+                // Handle response data as needed
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                // Handle errors appropriately
+            });
+        window.location.href = "soon.html";
+    } else {
+        if (method == "")
+            popup.classList.toggle("show");
+
     }
-            window.location.href = "soon.html"
-        }
-        else{
-            if(method == "")
-                popup.classList.toggle("show");
-            
-        }
-    })
+});
+
     
     </script>
 </body>
