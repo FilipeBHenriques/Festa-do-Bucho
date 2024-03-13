@@ -205,10 +205,8 @@
         selectedNib = 0;
         method = "mbway";
         
-        const url = `https://ifthenpay.com/api/gateway/paybylink/AFMQ-824282`;
-        //test
+        const url = "https://ifthenpay.com/api/gateway/paybylink/AFMQ-824282";
         
-
         // Define the JSON body
         const requestBody = {
         "id": "1234",
@@ -222,8 +220,6 @@
         "btnCloseLabel": "Texto do Botão"
         };
 
-        
-        
         fetch(url, {
         method: "POST",
         
