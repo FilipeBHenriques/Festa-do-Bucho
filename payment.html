@@ -198,7 +198,64 @@
             window.location.href = "NIB.html";
         }
         else if(method == "mbway" && tickets){
+            var preco = number_ticket_A * 21 + number_ticket_C * 12.5
+            var C = number_ticket_C
+            var A = number_ticket_A
+            localStorage.setItem("value",preco)
+            localStorage.setItem("Criança",C)
+            localStorage.setItem("Adulto",A)
+            MBWAY.style.borderColor = "rgb(4,170,109)";
+            CARD.style.borderColor = "white";
+            Ctext.style.color = "white";
+            NIB.style.borderColor = "white";
+            Ntext.style.color = "white";
+            selectedCard = 0;
+            selectedNib = 0;
+            method = "mbway";
 
+            // Constructing the JSON body
+            var requestBody = {
+            "id": "1234",
+            "amount": preco.toString(),
+            "description": "Encomenda 123",
+            "lang": "en",
+            "expiredate": "",
+            "accounts": "MBWAY|XXX-000000;",
+            "selected_method": "2",
+            "btnCloseUrl": "end.html",
+            "btnCloseLabel": "Close"
+            };
+
+            // Placeholder substitution for [GATEWAY_KEY]
+            var gatewayKey = "YYB-729736"; // Replace with the actual gateway key
+            requestBody.accounts = requestBody.accounts.replace("XXX-000000", gatewayKey);
+
+            // Convert the JSON object to a string
+            var jsonBody = JSON.stringify(requestBody);
+        
+            // Sending the POST request
+            fetch("https://ifthenpay.com/api/gateway/paybylink/" + gatewayKey, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: jsonBody
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Response:", data);
+            // Handle response data as needed
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            // Handle errors appropriately
+        });
+    }
             window.location.href = "soon.html"
         }
         else{
