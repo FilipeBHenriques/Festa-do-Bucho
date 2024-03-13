@@ -223,7 +223,12 @@
             method: "GET",
             mode: "no-cors"
         })
-        
+        .then(response => {
+            if (!response.ok) {
+            throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
         .then(data => {
             console.log("Payment URL:", data); // Handle the payment URL as needed
             window.location.href = data; // Redirect the user to the payment URL
