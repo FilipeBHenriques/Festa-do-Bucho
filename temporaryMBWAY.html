@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Grid</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(73, 65, 26);
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 20px;
+        }
+        .button {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(174, 179, 35);
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color:rgb(228, 233, 75);
+        }
+        .grid-text {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .confirm-button {
+            grid-column: 1 / -1;
+            margin-top: 20px;
+            width: 200px;
+            height: 50px;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .confirm-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pagamento MBWAY</h1>
+        <div class="button-grid">
+            <div class="grid-text">Devido a um problema técnico, bilhetes por MBWAY apenas podem ser adquiridos nos seguintes pacotes</div>
+            <button class="button" onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/8GEBjO7eWQ")>1 Bilhete Adulto</button>
+            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/hTgmMFGoPq")>2 Bilhete Adulto</button>
+            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/EB3PNfJRrL")>5 Bilhete Adulto</button>
+            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/E6Vtf8h9Wq")>1 Bilhete Criança</button>
+            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/sh4AnLOdgD")>2 Bilhete Criança</button>
+            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/Sis8ey5LbN")>5 Bilhete Criança</button>
+        </div>
+    </div>
+</body>
+<script>
+    function redirectTo(url) {
+        window.location.href = url;
+    }
+</script>
+</html>
