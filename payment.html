@@ -190,7 +190,7 @@
 
         window.location.href = "NIB.html";
     } else if (method == "mbway" && tickets) {
-        var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
+        /*var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
         var C = number_ticket_C;
         var A = number_ticket_A;
         localStorage.setItem("value", preco);
@@ -209,15 +209,15 @@
         
         // Define the JSON body
         const requestBody = {
-        "id": "10",
-        "amount": "20",
-        "description": "testing",
+        "id": "1234",
+        "amount": "21.50",
+        "description": "Encomenda 123",
         "lang": "en",
         "expiredate": "",
-        "accounts": "MBWAY|YYB-729736;",
+        "accounts": "MBWAY|AFMQ-824282;",
         "selected_method": "2",
         "btnCloseUrl": "http://url.com",
-        "btnCloseLabel": "Texto do Boo"
+        "btnCloseLabel": "Texto do Botão"
         };
 
         fetch(url, {
@@ -241,7 +241,8 @@
         .catch(error => {
         console.error("Error:", error);
         // Handle errors appropriately
-        });
+        });*/
+        window.location.href = "temporaryMBWAY.html"
 
 
 
