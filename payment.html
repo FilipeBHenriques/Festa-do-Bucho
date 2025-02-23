@@ -214,7 +214,9 @@
                   quantity: Number(number_ticket_C_free),
                 });
               }
-
+              var stripe = Stripe(
+                "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE"
+              );
               stripe
                 .redirectToCheckout({
                   lineItems,
