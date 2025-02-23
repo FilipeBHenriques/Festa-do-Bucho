@@ -260,31 +260,7 @@
             selectedNib = 0;
             method = "mbway";
 
-            const requestBody = {
-              mbWayKey: "YYB-729736",
-              orderId: "12345",
-              amount: "0.50",
-              mobileNumber: "351#934695862",
-              email: "",
-              description: "order 123456",
-            };
-
-            fetch("https://api.ifthenpay.com/spg/payment/mbway", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(requestBody),
-            })
-              .then((response) => {
-                if (!response.ok)
-                  throw new Error("Network response was not ok");
-                return response.json();
-              })
-              .then((data) => console.log("Response:", data))
-              .catch((error) => console.error("Error:", error));
-
-            //window.location.href = "temporaryMBWAY.html";
+            window.location.href = "temporaryMBWAY.html";
           } else {
             if (method == "") popup.classList.toggle("show");
           }
