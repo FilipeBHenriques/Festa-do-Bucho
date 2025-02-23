@@ -103,11 +103,23 @@
 
       // Retrieve the total value from localStorage
       var totalValue = localStorage.getItem("totalValue");
-
-      // Use the total value as needed
       document.getElementById("displayTotal").innerText = totalValue;
 
-      NIB.addEventListener("click", function (event) {
+      // Ticket calculation function
+      function calculateTickets() {
+        var number_ticket_A = localStorage.getItem("ticketA") || 0;
+        var number_ticket_C = localStorage.getItem("ticketC") || 0;
+        var number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
+
+        return {
+          number_ticket_A,
+          number_ticket_C,
+          number_ticket_C_free,
+          totalPrice: number_ticket_A * 21 + number_ticket_C * 12.5,
+        };
+      }
+
+      NIB.addEventListener("click", function () {
         popup.classList.remove("show");
         selectedNib = !selectedNib;
         if (selectedNib) {
@@ -119,28 +131,15 @@
           selectedCard = 0;
           selectedMBway = 0;
           method = "nib";
-        }
-        if (!selectedNib) {
+        } else {
           NIB.style.borderColor = "white";
           Ntext.style.color = "white";
           method = "";
         }
       });
-      NIB.addEventListener("mouseover", function (event) {
-        NIB.style.borderColor = "rgb(4,170,109)";
-      });
-      CARD.addEventListener("mouseover", function (event) {
-        CARD.style.borderColor = "rgb(4,170,109)";
-      });
-      NIB.addEventListener("mouseout", function (event) {
-        if (!selectedNib) NIB.style.borderColor = "white";
-      });
-      CARD.addEventListener("mouseout", function (event) {
-        if (!selectedCard) CARD.style.borderColor = "white";
-      });
-      CARD.addEventListener("click", function (event) {
-        popup.classList.remove("show");
 
+      CARD.addEventListener("click", function () {
+        popup.classList.remove("show");
         selectedCard = !selectedCard;
         if (selectedCard) {
           CARD.style.borderColor = "rgb(4,170,109)";
@@ -150,14 +149,14 @@
           MBWAY.style.borderColor = "white";
           selectedNib = 0;
           method = "card";
-        }
-        if (!selectedCard) {
+        } else {
           CARD.style.borderColor = "white";
           method = "";
           Ctext.style.color = "white";
         }
       });
-      MBWAY.addEventListener("click", function (event) {
+
+      MBWAY.addEventListener("click", function () {
         popup.classList.remove("show");
         selectedMBway = !selectedMBway;
         if (selectedMBway) {
@@ -169,27 +168,22 @@
           selectedCard = 0;
           selectedNib = 0;
           method = "mbway";
-        }
-        if (!selectedMBway) {
+        } else {
           MBWAY.style.borderColor = "white";
           method = "";
         }
       });
 
-      var stripe = Stripe(
-        "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE"
-      );
-
       document
         .getElementById("checkout")
         .addEventListener("click", function (event) {
-          number_ticket_A = localStorage.getItem("ticketA") || 0;
-          number_ticket_C = localStorage.getItem("ticketC") || 0;
-          number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
-          console.log(number_ticket_A);
-          console.log(number_ticket_C);
-          console.log(number_ticket_C_free);
-          if (number_ticket_C + number_ticket_A == 0) {
+          var ticketsData = calculateTickets();
+          var number_ticket_A = ticketsData.number_ticket_A;
+          var number_ticket_C = ticketsData.number_ticket_C;
+          var number_ticket_C_free = ticketsData.number_ticket_C_free;
+
+          // Ensure at least one ticket is selected
+          if (number_ticket_C + number_ticket_A === 0) {
             popup2.classList.toggle("show");
             setTimeout(function () {
               popup2.classList.remove("show");
@@ -197,72 +191,59 @@
           } else {
             tickets = 1;
           }
-          if (method == "card" && tickets) {
-            event.preventDefault();
 
-            lineItems = [];
+          if (tickets) {
+            if (method === "card") {
+              event.preventDefault();
+              var lineItems = [];
+              if (number_ticket_A > 0) {
+                lineItems.push({
+                  price: "price_1OlbQZGsmOjGAvzGdFiDaItt",
+                  quantity: Number(number_ticket_A),
+                });
+              }
+              if (number_ticket_C > 0) {
+                lineItems.push({
+                  price: "price_1OlbRPGsmOjGAvzGO697i4gH",
+                  quantity: Number(number_ticket_C),
+                });
+              }
+              if (number_ticket_C_free > 0) {
+                lineItems.push({
+                  price: "price_1Qvi1DGsmOjGAvzGH3BO9SJT",
+                  quantity: Number(number_ticket_C_free),
+                });
+              }
 
-            if (number_ticket_A > 0) {
-              lineItems.push({
-                price: "price_1OlbQZGsmOjGAvzGdFiDaItt",
-                quantity: Number(number_ticket_A),
-              });
+              stripe
+                .redirectToCheckout({
+                  lineItems,
+                  mode: "payment",
+                  successUrl:
+                    "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
+                  cancelUrl:
+                    "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
+                })
+                .then(function (result) {
+                  alert(result);
+                });
+            } else if (method === "nib") {
+              localStorage.setItem("value", ticketsData.totalPrice);
+              localStorage.setItem("Criança", number_ticket_C);
+              localStorage.setItem("Adulto", number_ticket_A);
+              localStorage.setItem("CriançaFree", number_ticket_C_free);
+
+              window.location.href = "NIB.html";
+            } else if (method === "mbway") {
+              localStorage.setItem("value", ticketsData.totalPrice);
+              localStorage.setItem("Criança", number_ticket_C);
+              localStorage.setItem("Adulto", number_ticket_A);
+              localStorage.setItem("CriançaFree", number_ticket_C_free);
+
+              window.location.href = "temporaryMBWAY.html";
+            } else {
+              if (method === "") popup.classList.toggle("show");
             }
-            if (number_ticket_C > 0) {
-              lineItems.push({
-                price: "price_1OlbRPGsmOjGAvzGO697i4gH",
-                quantity: Number(number_ticket_C),
-              });
-            }
-            if (number_ticket_C_free > 0) {
-              lineItems.push({
-                price: "price_1Qvi1DGsmOjGAvzGH3BO9SJT",
-                quantity: Number(number_ticket_C_free),
-              });
-            }
-
-            stripe
-              .redirectToCheckout({
-                lineItems,
-                mode: "payment",
-                successUrl:
-                  "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
-                cancelUrl:
-                  "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
-              })
-              .then(function (result) {
-                alert(result);
-              });
-          } else if (method == "nib" && tickets) {
-            var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
-            var C = number_ticket_C;
-            var A = number_ticket_A;
-            var CF = number_ticket_C_free;
-            localStorage.setItem("value", preco);
-            localStorage.setItem("Criança", C);
-            localStorage.setItem("Adulto", A);
-            localStorage.setItem("CriançaFree", CF);
-
-            window.location.href = "NIB.html";
-          } else if (method == "mbway" && tickets) {
-            var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
-            var C = number_ticket_C;
-            var A = number_ticket_A;
-            localStorage.setItem("value", preco);
-            localStorage.setItem("Criança", C);
-            localStorage.setItem("Adulto", A);
-            MBWAY.style.borderColor = "rgb(4,170,109)";
-            CARD.style.borderColor = "white";
-            Ctext.style.color = "white";
-            NIB.style.borderColor = "white";
-            Ntext.style.color = "white";
-            selectedCard = 0;
-            selectedNib = 0;
-            method = "mbway";
-
-            window.location.href = "temporaryMBWAY.html";
-          } else {
-            if (method == "") popup.classList.toggle("show");
           }
         });
     </script>
