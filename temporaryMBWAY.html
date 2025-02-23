@@ -1,70 +1,151 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt">
   <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+    <title>Festa do Bucho - MBWay</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://js.stripe.com/v3"></script>
-    <title>Festa do Bucho - MBWay</title>
-    <meta
-      name="viewport"
-      content="width=device-width, height=device-height, initial-scale=1.0"
-    />
+
+    <style>
+      /* General styles for the page */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      .center2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+      }
+
+      .containerB {
+        background-color: #34495e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+      }
+
+      p {
+        font-size: 2vh;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* Form styles */
+      label {
+        font-size: 1.5vh;
+        margin-bottom: 5px;
+      }
+
+      input[type="tel"],
+      input[type="email"],
+      button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.5vh;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        background-color: #f5f5f5;
+        color: #333;
+        box-sizing: border-box; /* Ensures padding is included in width calculation */
+      }
+
+      input[type="tel"]:focus,
+      input[type="email"]:focus,
+      button:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      button {
+        background-color: rgb(4, 170, 109);
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: rgb(2, 141, 91);
+      }
+
+      button:active {
+        background-color: rgb(4, 120, 80);
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 600px) {
+        .containerB {
+          padding: 15px;
+        }
+
+        p {
+          font-size: 3vh;
+        }
+
+        button {
+          font-size: 2vh;
+        }
+      }
+    </style>
   </head>
 
   <body class="bg2">
     <div class="center2">
-      <div class="containerB">
-        <p style="color: white; font-size: 2vh; text-align: center">
-          Pagamento MBWay <br />Total: <span id="displayTotal">0</span>€:
-        </p>
+      <div>
+        <p>Pagamento MBWay<br />Total: <span id="displayTotal">0</span>€:</p>
 
         <!-- Form for collecting phone number and email -->
         <form id="mbwayForm" action="" method="post">
           <div style="margin-bottom: 10px">
-            <label for="phone" style="color: white; font-size: 1.5vh"
-              >Número de Telefone:</label
-            >
+            <label for="phone">Número de Telefone:</label>
             <input
               type="tel"
               id="phone"
               name="phone"
               placeholder="351#912345678"
-              style="font-size: 1.5vh; padding: 5px"
               required
             />
           </div>
           <div style="margin-bottom: 10px">
-            <label for="email" style="color: white; font-size: 1.5vh"
-              >Email:</label
-            >
+            <label for="email">Email:</label>
             <input
               type="email"
               id="email"
               name="email"
               placeholder="seuemail@dominio.com"
-              style="font-size: 1.5vh; padding: 5px"
             />
           </div>
-          <button
-            type="submit"
-            style="
-              padding: 10px;
-              font-size: 1.5vh;
-              background-color: rgb(4, 170, 109);
-              color: white;
-              border: none;
-              cursor: pointer;
-            "
-          >
-            Confirmar Pagamento MBWay
-          </button>
+          <button type="submit">Confirmar Pagamento MBWay</button>
         </form>
       </div>
     </div>
 
     <script>
+      function generateRandomNumber() {
+        return Math.floor(Math.random() * 900000) + 100000;
+      }
+      // Retrieve the number of tickets from localStorage
+      var number_ticket_A = localStorage.getItem("ticketA") || 0;
+      var number_ticket_C = localStorage.getItem("ticketC") || 0;
+      var number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
+
       // Display the total amount in the page
       var totalValue = localStorage.getItem("value");
       document.getElementById("displayTotal").innerText = totalValue;
@@ -78,16 +159,18 @@
           var phoneNumber = document.getElementById("phone").value;
           var email = document.getElementById("email").value;
           var amount = totalValue; // Get the total amount
-
+          var orderId = email + phoneNumber + "|||" + generateRandomNumber();
           if (phoneNumber && email) {
-            // Prepare the request data
+            // Prepare the request data with ticket counts in the description
             const requestBody = {
               mbWayKey: "YYB-729736", // Replace with actual key
-              orderId: "12345", // Unique order ID
+              orderId: orderId,
               amount: amount,
               mobileNumber: phoneNumber,
               email: email,
-              description: "Festa do Bucho - Order Payment",
+              description: `Festa do Bucho - Pagamento ${number_ticket_A} Bilhetes Adulto, ${number_ticket_C} Bilhetes Criança, and ${number_ticket_C_free} Bilhetes Criança 0-5 anos. Total ${
+                number_ticket_A + number_ticket_C + number_ticket_C_free
+              } bilhetes`, // Include ticket numbers
             };
 
             // Send request to MBWay API
