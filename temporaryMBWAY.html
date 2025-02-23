@@ -159,7 +159,7 @@
           var phoneNumber = document.getElementById("phone").value;
           var email = document.getElementById("email").value;
           var amount = totalValue; // Get the total amount
-          var orderId = email + phoneNumber + "|||" + generateRandomNumber();
+          var orderId = phoneNumber + "|||" + generateRandomNumber();
           if (phoneNumber && email) {
             // Prepare the request data with ticket counts in the description
             const requestBody = {
@@ -168,9 +168,7 @@
               amount: 0.01,
               mobileNumber: phoneNumber,
               email: email,
-              description: `Festa do Bucho - Pagamento ${number_ticket_A} Bilhetes Adulto, ${number_ticket_C} Bilhetes Criança, and ${number_ticket_C_free} Bilhetes Criança 0-5 anos. Total ${
-                number_ticket_A + number_ticket_C + number_ticket_C_free
-              } bilhetes`, // Include ticket numbers
+              description: `A: ${number_ticket_A} C: ${number_ticket_C} C05: ${number_ticket_C_free}`,
             };
 
             // Send request to MBWay API
