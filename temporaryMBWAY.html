@@ -1,87 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Button Grid</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: rgb(73, 65, 26);
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            color: white;
-            margin-bottom: 30px;
-        }
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-gap: 20px;
-        }
-        .button {
-            width: 100px;
-            height: 100px;
-            background-color: rgb(174, 179, 35);
-            color: #ffffff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .button:hover {
-            background-color:rgb(228, 233, 75);
-        }
-        .grid-text {
-            grid-column: 1 / -1;
-            text-align: center;
-            margin-bottom: 20px;
-            color: white;
-        }
-        .confirm-button {
-            grid-column: 1 / -1;
-            margin-top: 20px;
-            width: 200px;
-            height: 50px;
-            background-color: #3498db;
-            color: #ffffff;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .confirm-button:hover {
-            background-color: #2980b9;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Pagamento MBWAY</h1>
-        <div class="button-grid">
-            <div class="grid-text">Devido a um problema técnico, bilhetes por MBWAY apenas podem ser adquiridos nos seguintes pacotes</div>
-            <button class="button" onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/8GEBjO7eWQ")>1 Bilhete Adulto</button>
-            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/hTgmMFGoPq")>2 Bilhete Adulto</button>
-            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/EB3PNfJRrL")>5 Bilhete Adulto</button>
-            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/E6Vtf8h9Wq")>1 Bilhete Criança</button>
-            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/sh4AnLOdgD")>2 Bilhete Criança</button>
-            <button class="button"onclick=redirectTo("https&#58;&#47;&#47;gateway.ifthenpay.com/url/Sis8ey5LbN")>5 Bilhete Criança</button>
-        </div>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://js.stripe.com/v3"></script>
+    <title>Festa do Bucho - MBWay</title>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+  </head>
+
+  <body class="bg2">
+    <div class="center2">
+      <div class="containerB">
+        <p style="color: white; font-size: 2vh; text-align: center">
+          Pagamento MBWay <br />Total: <span id="displayTotal">0</span>€:
+        </p>
+
+        <!-- Form for collecting phone number and email -->
+        <form id="mbwayForm" action="" method="post">
+          <div style="margin-bottom: 10px">
+            <label for="phone" style="color: white; font-size: 1.5vh"
+              >Número de Telefone:</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="351#912345678"
+              style="font-size: 1.5vh; padding: 5px"
+              required
+            />
+          </div>
+          <div style="margin-bottom: 10px">
+            <label for="email" style="color: white; font-size: 1.5vh"
+              >Email:</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seuemail@dominio.com"
+              style="font-size: 1.5vh; padding: 5px"
+            />
+          </div>
+          <button
+            type="submit"
+            style="
+              padding: 10px;
+              font-size: 1.5vh;
+              background-color: rgb(4, 170, 109);
+              color: white;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            Confirmar Pagamento MBWay
+          </button>
+        </form>
+      </div>
     </div>
-</body>
-<script>
-    function redirectTo(url) {
-        window.location.href = url;
-    }
-</script>
+
+    <script>
+      // Display the total amount in the page
+      var totalValue = localStorage.getItem("value");
+      document.getElementById("displayTotal").innerText = totalValue;
+
+      // Form submission handling
+      document
+        .getElementById("mbwayForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var phoneNumber = document.getElementById("phone").value;
+          var email = document.getElementById("email").value;
+          var amount = totalValue; // Get the total amount
+
+          if (phoneNumber && email) {
+            // Prepare the request data
+            const requestBody = {
+              mbWayKey: "YYB-729736", // Replace with actual key
+              orderId: "12345", // Unique order ID
+              amount: amount,
+              mobileNumber: phoneNumber,
+              email: email,
+              description: "Festa do Bucho - Order Payment",
+            };
+
+            // Send request to MBWay API
+            fetch("https://api.ifthenpay.com/spg/payment/mbway", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(requestBody),
+            })
+              .then((response) => {
+                if (!response.ok)
+                  throw new Error("Network response was not ok");
+                return response.json();
+              })
+              .then((data) => {
+                console.log("Payment response:", data);
+                if (data.Status === "000") {
+                  // Successfully initiated payment
+                  window.location.href = "success.html"; // Redirect to success page
+                } else {
+                  alert("Erro ao processar pagamento. Tente novamente.");
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Erro ao processar pagamento. Tente novamente.");
+              });
+          } else {
+            alert("Por favor, preencha todos os campos.");
+          }
+        });
+    </script>
+  </body>
 </html>
