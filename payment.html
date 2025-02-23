@@ -260,44 +260,30 @@
             selectedNib = 0;
             method = "mbway";
 
-            const url =
-              "https://ifthenpay.com/api/gateway/paybylink/AFMQ-824282";
-
-            // Define the JSON body
             const requestBody = {
-              id: "1234",
-              amount: "21.50",
-              description: "Encomenda 123",
-              lang: "en",
-              expiredate: "",
-              accounts: "MBWAY|AFMQ-824282;",
-              selected_method: "2",
-              btnCloseUrl: "http://url.com",
-              btnCloseLabel: "Texto do Botão",
+              mbWayKey: "AFMQ-824282",
+              orderId: "12345",
+              amount: "100.50",
+              mobileNumber: "351#912345678",
+              email: "",
+              description: "order 123456",
             };
 
-            fetch(url, {
+            fetch("https://api.ifthenpay.com/spg/payment/mbway", {
               method: "POST",
-
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify(requestBody),
             })
               .then((response) => {
-                if (!response.ok) {
-                  console.log(response);
+                if (!response.ok)
                   throw new Error("Network response was not ok");
-                }
                 return response.json();
               })
-              .then((data) => {
-                console.log("Response:", data); // Handle the response data as needed
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-                // Handle errors appropriately
-              });
+              .then((data) => console.log("Response:", data))
+              .catch((error) => console.error("Error:", error));
+
             //window.location.href = "temporaryMBWAY.html";
           } else {
             if (method == "") popup.classList.toggle("show");
