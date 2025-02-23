@@ -1,477 +1,423 @@
-
-head{
-    height: 100%;
-    width: 100%;
+head {
+  height: 100%;
+  width: 100%;
 }
 
-body{
-    height: 100%;
-    width: 100%;
+body {
+  height: 100%;
+  width: 100%;
 }
-
 
 .row {
-    display: -ms-flexbox;
-    /* IE10 */
-    display: flex;
+  display: -ms-flexbox;
+  /* IE10 */
+  display: flex;
 
-    /* IE10 */
+  /* IE10 */
 
-    margin: 0 -16px;
+  margin: 0 -16px;
 }
 
 .col-25 {
-    -ms-flex: 25%;
-    /* IE10 */
-    flex: 25%;
+  -ms-flex: 25%;
+  /* IE10 */
+  flex: 25%;
 }
 
 .col-20 {
-    -ms-flex: 50%;
-    /* IE10 */
-    flex: 50%;
+  -ms-flex: 50%;
+  /* IE10 */
+  flex: 50%;
 }
 
-
-
 .col-75 {
-    -ms-flex: 75%;
-    /* IE10 */
-    flex: 75%;
+  -ms-flex: 75%;
+  /* IE10 */
+  flex: 75%;
 }
 
 .col-25,
 .col-20,
 .col-75 {
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-    width: 50%;
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  width: 50%;
 }
 
-
 .label {
-    margin-bottom: 10px;
-    display: block;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
 }
 
 .bottom {
-    position: absolute;
-    bottom: 100;
-    width: 101%;
+  position: absolute;
+  bottom: 100;
+  width: 101%;
 }
 
 .butt {
-    cursor: pointer;
-    background-color: rgb(73, 65, 26);
-    border: 0.1vh solid;
-    text-align: center;
-    line-height: 0px;
-    
-    padding: 20px 40px;
-    
-    border-color: white;
-                
-    /* reset your old margin */
-    
+  cursor: pointer;
+  background-color: rgb(73, 65, 26);
+  border: 0.1vh solid;
+  text-align: center;
+  line-height: 0px;
+
+  padding: 20px 40px;
+
+  border-color: white;
+
+  /* reset your old margin */
 }
 
-.containerB{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.containerB {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-
-.center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    margin-top: -5%;
-    margin-left: 22%;
-
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin-top: -5%;
+  margin-left: 22%;
 }
 
-.center2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    margin-top: 5%;
-    
-    
-
+.center2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  margin-top: 5%;
 }
 
-.button-group{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 10px;
+.button-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.input-group{
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-width: 100%;
-    
+.input-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 100%;
 }
 
+.payB {
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 5px 30px;
 
-.payB{
+  background-color: rgb(73, 65, 26);
+  border: 0.3vh solid;
+  text-align: left;
+  line-height: 0px;
 
-    margin-left: 1px;
-    margin-right: 1px;
-    padding: 5px 30px;
-    
-    
-    background-color:  rgb(73, 65, 26);
-    border: 0.3vh solid;
-    text-align: left;
-    line-height: 0px;
-    
-    border-color: white;
-
-    
+  border-color: white;
 }
 
-.payB:hover{
-    border-color: #04AA6D;
+.payB:hover {
+  border-color: #04aa6d;
 }
-
-
 
 .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 50%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 50%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
 }
 
+.inputA {
+  /* reset your old margin */
+  width: 100%;
+  margin: 1px 0;
+  padding: 10px;
+  font-size: 1.2vh;
+  text-align: left;
 
+  border-color: white;
+  border: 0.1vh solid;
 
-.inputA{
-    
-    /* reset your old margin */
-    width: 100%;
-    margin: 1px 0;
-    padding: 10px;
-    font-size: 1.2vh;
-    text-align: left;
-    
-    border-color: white;
-    border: 0.1vh solid;
-    
-    background-color:  rgb(73, 65, 26);
-    
+  background-color: rgb(73, 65, 26);
 }
 
+.inputFree {
+  /* reset your old margin */
+  width: 100%;
+  margin: 1px 0;
+  padding: 10px;
+  font-size: 1.2vh;
+  text-align: left;
 
+  border-color: white;
+  border: 0.1vh solid;
 
+  background-color: rgb(73, 65, 26);
+}
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
-    opacity: 1; /* Firefox */
-  }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: white;
-  }
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
 
-  
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
 
 .inputC {
-    
-    margin: 1px 0;
-    /* reset your old margin */
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2vh;
-    text-align: left;
-    border: 0.1vh solid;
-    border-color: white;
-    
-    background-color:  rgb(73, 65, 26) ;
+  margin: 1px 0;
+  /* reset your old margin */
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2vh;
+  text-align: left;
+  border: 0.1vh solid;
+  border-color: white;
+
+  background-color: rgb(73, 65, 26);
 }
 
 .bg1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    
-    background-color: rgb(73, 65, 26);
-    background-image: url("bucho\ com\ circulos.jpeg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  background-color: rgb(73, 65, 26);
+  background-image: url("bucho\ com\ circulos.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 .bg2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    
-    background-color: rgb(73, 65, 26);
-    background-image: url("bucho\ sem\ circulos.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+
+  background-color: rgb(73, 65, 26);
+  background-image: url("bucho\ sem\ circulos.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
-.formD{
-    width: 10vh;
-    height: 20vh;
+.formD {
+  width: 10vh;
+  height: 20vh;
 }
 
-.formI{
-    width: 10vh;
-    height: 4vh;
-    background-color: rgb(147,30,21);
-    border: 0.1vh solid;
-
-
+.formI {
+  width: 10vh;
+  height: 4vh;
+  background-color: rgb(147, 30, 21);
+  border: 0.1vh solid;
 }
-
-
 
 .popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  /* The actual popup (appears on top) */
-  .popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-  }
-  
-  /* Popup arrow */
-  .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-  }
-  
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
 
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
 
-@media only screen and (max-width:320px) and (min-width:667px){
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
 
-    }
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 320px) and (min-width: 667px) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
 }
 
 /*============================================================================== 
     iPhone 4 and 4S || 320 x 480 || Default, Portrait and Landscape
 ================================================================================ */
-@media only screen and (min-width: 320px) 
-and (max-width: 480px){
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-
-    }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
 }
 
-@media only screen and (min-width: 320px) 
-and (max-width: 480px) and (orientation: portrait) {
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-    }}
-
-@media only screen and (min-width: 320px) 
-and (max-width: 480px) and (orientation: landscape) {
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-
-    }}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: landscape) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
 /*============================================================================== 
 iPhone 5, 5S, 5C and 5SE || 320 x 568 || Default, Portrait and Landscape
 ================================================================================ */
-@media only screen and (min-width: 320px) 
-and (max-width: 568px){
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
+@media only screen and (min-width: 320px) and (max-width: 568px) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-    }}
+@media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: portrait) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-@media only screen and (min-width: 320px) 
-and (max-width: 568px) and (orientation: portrait) {
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-
-    }}
-
-@media only screen and (min-width: 320px) 
-and (max-width: 568px) and (orientation: landscape) {
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-
-    }}
+@media only screen and (min-width: 320px) and (max-width: 568px) and (orientation: landscape) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
 /*============================================================================== 
 iPhone 6, 6S, 7 and 8 || 375 x 667 || Default, Portrait and Landscape
 ================================================================================ */
-@media only screen and (min-width: 375px) 
-and (max-width: 667px){ 
-    .center{
-        
-        
-        transform-origin: center;
-        transform: scale(0.5);
+@media only screen and (min-width: 375px) and (max-width: 667px) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-    }}
+@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: portrait) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-@media only screen and (min-width: 375px) 
-and (max-width: 667px) and (orientation: portrait) { 
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-    }}
-
-@media only screen and (min-width: 375px) 
-and (max-width: 667px) and (orientation: landscape) { 
-    .center{
-        
-        
-        transform-origin: center;
-        transform: scale(0.5);
-
-    }}
+@media only screen and (min-width: 375px) and (max-width: 667px) and (orientation: landscape) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
 /*============================================================================== 
 iPhone 6+, 7+ and 8+ || 414 x 736 || Default, Portrait and Landscape
 ================================================================================ */
-@media only screen and (min-width: 414px) 
-and (max-width: 736px){ 
-    .center{
-        transform-origin: center;
-        transform: scale(0.5);
-        
-    }}
-
-@media only screen and (min-width: 414px) 
-and (max-width: 736px) and (orientation: portrait) { 
-    .center{
-        transform-origin: center;
-        transform: scale(0.5);
-        
-
-    }
+@media only screen and (min-width: 414px) and (max-width: 736px) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
 }
 
-@media only screen and (min-width: 414px) 
-and (max-width: 736px) and (orientation: landscape) { 
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
+@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
-    }}
+@media only screen and (min-width: 414px) and (max-width: 736px) and (orientation: landscape) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
 
 /*============================================================================== 
 iPhone X || 375 x 812 || Default, Portrait and Landscape
 ================================================================================ */
-@media only screen and (min-width: 375px) 
-and (max-width: 812px){ 
-    .center{
-        
-        
-transform-origin: center;
-        transform: scale(0.5);
-
-    }}
-
-@media only screen and (min-width: 375px) 
-and (max-width: 812px) and (orientation: portrait) { 
-    .center{
-        
-    
+@media only screen and (min-width: 375px) and (max-width: 812px) {
+  .center {
     transform-origin: center;
-        transform: scale(0.5);
+    transform: scale(0.5);
+  }
+}
 
-    }}
+@media only screen and (min-width: 375px) and (max-width: 812px) and (orientation: portrait) {
+  .center {
+    transform-origin: center;
+    transform: scale(0.5);
+  }
+}
