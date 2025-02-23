@@ -213,6 +213,12 @@
                 quantity: Number(number_ticket_C),
               });
             }
+            if (number_ticket_C_free > 0) {
+              lineItems.push({
+                price: "price_1Qvi1DGsmOjGAvzGH3BO9SJT",
+                quantity: Number(number_ticket_C_free),
+              });
+            }
 
             stripe
               .redirectToCheckout({
