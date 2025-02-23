@@ -188,6 +188,7 @@
           number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
           console.log(number_ticket_A);
           console.log(number_ticket_C);
+          console.log(number_ticket_C_free);
           if (number_ticket_C + number_ticket_A == 0) {
             popup2.classList.toggle("show");
             setTimeout(function () {
@@ -245,58 +246,58 @@
             window.location.href = "NIB.html";
           } else if (method == "mbway" && tickets) {
             /*var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
-        var C = number_ticket_C;
-        var A = number_ticket_A;
-        localStorage.setItem("value", preco);
-        localStorage.setItem("Criança", C);
-        localStorage.setItem("Adulto", A);
-        MBWAY.style.borderColor = "rgb(4,170,109)";
-        CARD.style.borderColor = "white";
-        Ctext.style.color = "white";
-        NIB.style.borderColor = "white";
-        Ntext.style.color = "white";
-        selectedCard = 0;
-        selectedNib = 0;
-        method = "mbway";
-        
-        const url = "https://ifthenpay.com/api/gateway/paybylink/AFMQ-824282";
-        
-        // Define the JSON body
-        const requestBody = {
-        "id": "1234",
-        "amount": "21.50",
-        "description": "Encomenda 123",
-        "lang": "en",
-        "expiredate": "",
-        "accounts": "MBWAY|AFMQ-824282;",
-        "selected_method": "2",
-        "btnCloseUrl": "http://url.com",
-        "btnCloseLabel": "Texto do Botão"
-        };
+              var C = number_ticket_C;
+              var A = number_ticket_A;
+              localStorage.setItem("value", preco);
+              localStorage.setItem("Criança", C);
+              localStorage.setItem("Adulto", A);
+              MBWAY.style.borderColor = "rgb(4,170,109)";
+              CARD.style.borderColor = "white";
+              Ctext.style.color = "white";
+              NIB.style.borderColor = "white";
+              Ntext.style.color = "white";
+              selectedCard = 0;
+              selectedNib = 0;
+              method = "mbway";
 
-        fetch(url, {
-        method: "POST",
-        
-        headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "https://xviifestadobuchofreineda.com"
-        },
-        body: JSON.stringify(requestBody)
-        })
-        .then(response => {
-        if (!response.ok) {
-            console.log(response);
-            throw new Error("Network response was not ok");
-        }
-        return response.json();
-        })
-        .then(data => {
-        console.log("Response:", data); // Handle the response data as needed
-        })
-        .catch(error => {
-        console.error("Error:", error);
-        // Handle errors appropriately
-        });*/
+              const url = "https://ifthenpay.com/api/gateway/paybylink/AFMQ-824282";
+
+              // Define the JSON body
+              const requestBody = {
+              "id": "1234",
+              "amount": "21.50",
+              "description": "Encomenda 123",
+              "lang": "en",
+              "expiredate": "",
+              "accounts": "MBWAY|AFMQ-824282;",
+              "selected_method": "2",
+              "btnCloseUrl": "http://url.com",
+              "btnCloseLabel": "Texto do Botão"
+              };
+
+              fetch(url, {
+              method: "POST",
+
+              headers: {
+                  "Content-Type": "application/json",
+                  "Access-Control-Allow-Origin": "https://xviifestadobuchofreineda.com"
+              },
+              body: JSON.stringify(requestBody)
+              })
+              .then(response => {
+              if (!response.ok) {
+                  console.log(response);
+                  throw new Error("Network response was not ok");
+              }
+              return response.json();
+              })
+              .then(data => {
+              console.log("Response:", data); // Handle the response data as needed
+              })
+              .catch(error => {
+              console.error("Error:", error);
+              // Handle errors appropriately
+              });*/
             window.location.href = "temporaryMBWAY.html";
           } else {
             if (method == "") popup.classList.toggle("show");
