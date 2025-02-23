@@ -1,88 +1,189 @@
-
 <html>
-
-<head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <title>Festa do Bucho</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+  </head>
 
-<body class="bg2">
+  <body class="bg2">
     <div class="center2">
-        <div class="popup" onclick="myFunction()">
-            <span class="popuptext" id="myPopup2">Por favor Selecione pelo menos um bilhete</span>
+      <div class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup2"
+          >Por favor Selecione pelo menos um bilhete</span
+        >
+      </div>
+      <div
+        class="input-group"
+        style="
+          display: flex;
+          justify-content: space-around;
+          align-items: baseline;
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <p
+            style="
+              color: white;
+              font-size: 1.4vh;
+              text-align: center;
+              margin-right: 5px;
+            "
+          >
+            Bilhetes Adultos(<span id="adulto"></span>):
+          </p>
+          <input
+            class="inputA"
+            max="999"
+            min="0"
+            type="number"
+            id="inputA"
+            placeholder="0"
+            style="color: white; border-color: white; width: 50px"
+          />
         </div>
-        <div class="input-group" style="display: flex; justify-content: space-around; align-items: baseline;">
-            <div style="display: flex; align-items: center;">
-                <p style=" color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Bilhetes Adultos(<span id="adulto"></span>):</p>
-                <input class="inputA" max="999" min="0" type="number" id="inputA" placeholder="0" style="color:white; border-color: white; width: 50px;">
-            </div>
-            <div style="display: flex; align-items: center;">
-                <p style="color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Bilhetes Criança(<span id="criança"></span>):</p>
-                <input class="inputC" max="999" min="0" type="number" id="inputC" placeholder="0" style="color:white; border-color: white; width: 50px;">
-            </div>
+        <div style="display: flex; align-items: center">
+          <p
+            style="
+              color: white;
+              font-size: 1.4vh;
+              text-align: center;
+              margin-right: 5px;
+            "
+          >
+            Bilhetes Criança (6-12 anos) (<span id="criança"></span>):
+          </p>
+          <input
+            class="inputC"
+            max="999"
+            min="0"
+            type="number"
+            id="inputC"
+            placeholder="0"
+            style="color: white; border-color: white; width: 50px"
+          />
         </div>
-        <p style=" color:white; font-size: 1.4vh; text-align: center; margin-right: 5px;">Total:<span id="total">0</span>€</p>
-        
-        <button class="butt" id="paymentBtn" type="button" onclick="redirectToPayment()">
-            <p style="color:white; font-size: 1.4vh; text-align: center;">Pagamento</p>
-        </button>
+        <div style="display: flex; align-items: center">
+          <p
+            style="
+              color: white;
+              font-size: 1.4vh;
+              text-align: center;
+              margin-right: 5px;
+            "
+          >
+            Bilhetes Criança (0-5 anos) - Grátis:
+          </p>
+          <input
+            class="inputA"
+            max="999"
+            min="0"
+            type="number"
+            id="inputFree"
+            placeholder="0"
+            style="color: white; border-color: white; width: 50px"
+          />
+        </div>
+      </div>
+      <p
+        style="
+          color: white;
+          font-size: 1.4vh;
+          text-align: center;
+          margin-right: 5px;
+        "
+      >
+        Total:<span id="total">0</span>€
+      </p>
+
+      <button
+        class="butt"
+        id="paymentBtn"
+        type="button"
+        onclick="redirectToPayment()"
+      >
+        <p style="color: white; font-size: 1.4vh; text-align: center">
+          Pagamento
+        </p>
+      </button>
     </div>
 
     <script>
-        var tickets = 0
-    var popup2 = document.getElementById("myPopup2");
+      var tickets = 0;
+      var popup2 = document.getElementById("myPopup2");
 
-    document.getElementById("paymentBtn").addEventListener("click", function (event) {
-        number_ticket_A = document.getElementById("inputA") || 0;
-        number_ticket_C = document.getElementById("inputC") || 0;
-        console.log(number_ticket_A.value);
-        console.log(number_ticket_C.value);
-        if (Number(number_ticket_C.value) + Number(number_ticket_A.value) === 0) {
+      document
+        .getElementById("paymentBtn")
+        .addEventListener("click", function () {
+          var number_ticket_A = document.getElementById("inputA").value || 0;
+          var number_ticket_C = document.getElementById("inputC").value || 0;
+          var number_ticket_Free =
+            document.getElementById("inputFree").value || 0;
+
+          if (
+            Number(number_ticket_C) +
+              Number(number_ticket_A) +
+              Number(number_ticket_Free) ===
+            0
+          ) {
             popup2.classList.toggle("show");
             setTimeout(function () {
-                popup2.classList.remove("show");
+              popup2.classList.remove("show");
             }, 3000);
-        }
-        else{
-                tickets = 1
-                
-            }
-        })
-        function redirectToPayment() {
-            if (tickets == 1){
-                window.location.href = 'payment.html';
-            }
-        }
-        // Assuming you have a JavaScript variable named ticketPrice
-        var ticketPriceA = 21.0; // Replace with your actual ticket price
-        var ticketPriceC = 12.5; // Replace with your actual ticket price
+          } else {
+            tickets = 1;
+          }
+        });
 
-    // Update the text with the ticket price
-    document.getElementById("adulto").innerText = ticketPriceA.toFixed(1) + "€";
-    document.getElementById("criança").innerText = ticketPriceC + "€";
-    document.getElementById("inputA").addEventListener("change", updateTotal);
-    document.getElementById("inputC").addEventListener("change", updateTotal);
-
-    function updateTotal() {
-        // Get the number of tickets from the input
-        
-        var numberOfTicketsA = document.getElementById("inputA").value;
-        var numberOfTicketsC = document.getElementById("inputC").value;
-        if( numberOfTicketsA !=0 || numberOfTicketsC != 0){
-            tickets = 1
+      function redirectToPayment() {
+        if (tickets == 1) {
+          window.location.href = "payment.html";
         }
+      }
+
+      var ticketPriceA = 21.0;
+      var ticketPriceC = 12.5;
+
+      document.getElementById("adulto").innerText =
+        ticketPriceA.toFixed(1) + "€";
+      document.getElementById("criança").innerText = ticketPriceC + "€";
+
+      document.getElementById("inputA").addEventListener("change", updateTotal);
+      document.getElementById("inputC").addEventListener("change", updateTotal);
+      document
+        .getElementById("inputFree")
+        .addEventListener("change", updateTotal);
+
+      function updateTotal() {
+        var numberOfTicketsA = document.getElementById("inputA").value || 0;
+        var numberOfTicketsC = document.getElementById("inputC").value || 0;
+        var numberOfTicketsFree =
+          document.getElementById("inputFree").value || 0;
+
+        if (
+          numberOfTicketsA != 0 ||
+          numberOfTicketsC != 0 ||
+          numberOfTicketsFree != 0
+        ) {
+          tickets = 1;
+        }
+
         localStorage.setItem("ticketA", numberOfTicketsA);
         localStorage.setItem("ticketC", numberOfTicketsC);
-        // Calculate the total
-        var total = numberOfTicketsA * ticketPriceA + numberOfTicketsC * ticketPriceC ;
+        localStorage.setItem("ticketFree", numberOfTicketsFree);
+
+        var total =
+          numberOfTicketsA * ticketPriceA + numberOfTicketsC * ticketPriceC;
         localStorage.setItem("totalValue", total);
 
-        // Update the total in the HTML
         document.getElementById("total").innerText = total;
-    }
+      }
     </script>
-</body>
-
+  </body>
 </html>

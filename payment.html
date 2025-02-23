@@ -1,196 +1,244 @@
-
 <html>
-
-<head>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <script src="https://js.stripe.com/v3"></script>
     <title>Festa do Bucho</title>
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
-</head>
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0"
+    />
+  </head>
 
-<body class="bg2">
+  <body class="bg2">
     <div class="center2">
-        <div class="popup" onclick="myFunction()">
-            <span class="popuptext" id="myPopup">Por favor Selecione o método de pagamento</span>
-        </div>
-        <div class="popup" onclick="myFunction()">
-            <span class="popuptext" id="myPopup2">Por favor Selecione pelo menos um bilhete</span>
-        </div>
-        <div class="containerB">
-            <p style="color: white; font-size: 2vh; text-align: center;">Métodos de pagamento <br>Total: <span id="displayTotal">0</span>€:</p>
-            <div class="button-group">
-                <button class="payB" id="card" type="button" style="margin-bottom: 5px; display: flex; justify-content: center; align-items: center;">
-                    <i class="fa fa-credit-card" id="cardtext" style="font-size: 2.5vh; color: white; border-color: white;"></i>
-                </button>
-                
-                <button class ="payB" id="nib" type="button" style="margin-bottom: 5px;">
-                    <p id="nibtext"style=" color:white; font-size: 1.4vh; text-align: center; line-height: 0; ">NIB</p>
-                </button>
-                <button class="payB" id="mbway" type="button" style="margin-bottom: 2px;" >
-                    <img src="mbway.png" alt="MBWAY Logo" style="width: 6vh; height: 6vh;">
-                </button>
+      <div class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup"
+          >Por favor Selecione o método de pagamento</span
+        >
+      </div>
+      <div class="popup" onclick="myFunction()">
+        <span class="popuptext" id="myPopup2"
+          >Por favor Selecione pelo menos um bilhete</span
+        >
+      </div>
+      <div class="containerB">
+        <p style="color: white; font-size: 2vh; text-align: center">
+          Métodos de pagamento <br />Total: <span id="displayTotal">0</span>€:
+        </p>
+        <div class="button-group">
+          <button
+            class="payB"
+            id="card"
+            type="button"
+            style="
+              margin-bottom: 5px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            <i
+              class="fa fa-credit-card"
+              id="cardtext"
+              style="font-size: 2.5vh; color: white; border-color: white"
+            ></i>
+          </button>
 
-            </div>
+          <button
+            class="payB"
+            id="nib"
+            type="button"
+            style="margin-bottom: 5px"
+          >
+            <p
+              id="nibtext"
+              style="
+                color: white;
+                font-size: 1.4vh;
+                text-align: center;
+                line-height: 0;
+              "
+            >
+              NIB
+            </p>
+          </button>
+          <button
+            class="payB"
+            id="mbway"
+            type="button"
+            style="margin-bottom: 2px"
+          >
+            <img
+              src="mbway.png"
+              alt="MBWAY Logo"
+              style="width: 6vh; height: 6vh"
+            />
+          </button>
         </div>
-        <button class="butt" id="checkout" type="button">
-            <p style=" color:white; font-size: 1.4vh; text-align: center;">Comprar Bilhete(s)!</p>
-        </button>
-        
+      </div>
+      <button class="butt" id="checkout" type="button">
+        <p style="color: white; font-size: 1.4vh; text-align: center">
+          Comprar Bilhete(s)!
+        </p>
+      </button>
     </div>
 
     <script>
-        var method = ""
-        var selectedCard = 0
-        var selectedNib = 0
-        var selectedMBway = 0
-        var NIB = document.getElementById("nib")
-        var CARD = document.getElementById("card")
-        var MBWAY = document.getElementById("mbway")
-        var popup = document.getElementById("myPopup");
-        var popup2 = document.getElementById("myPopup2");
-        var tickets = 0;
-        var Ntext = document.getElementById("nibtext")
-        var Ctext = document.getElementById("cardtext")
+      var method = "";
+      var selectedCard = 0;
+      var selectedNib = 0;
+      var selectedMBway = 0;
+      var NIB = document.getElementById("nib");
+      var CARD = document.getElementById("card");
+      var MBWAY = document.getElementById("mbway");
+      var popup = document.getElementById("myPopup");
+      var popup2 = document.getElementById("myPopup2");
+      var tickets = 0;
+      var Ntext = document.getElementById("nibtext");
+      var Ctext = document.getElementById("cardtext");
 
-            // Retrieve the total value from localStorage
-        var totalValue = localStorage.getItem("totalValue");
+      // Retrieve the total value from localStorage
+      var totalValue = localStorage.getItem("totalValue");
 
-        // Use the total value as needed
-        document.getElementById("displayTotal").innerText = totalValue;
+      // Use the total value as needed
+      document.getElementById("displayTotal").innerText = totalValue;
 
+      NIB.addEventListener("click", function (event) {
+        popup.classList.remove("show");
+        selectedNib = !selectedNib;
+        if (selectedNib) {
+          NIB.style.borderColor = "rgb(4,170,109)";
+          Ntext.style.color = "rgb(4,170,109)";
+          CARD.style.borderColor = "white";
+          Ctext.style.color = "white";
+          MBWAY.style.borderColor = "white";
+          selectedCard = 0;
+          selectedMBway = 0;
+          method = "nib";
+        }
+        if (!selectedNib) {
+          NIB.style.borderColor = "white";
+          Ntext.style.color = "white";
+          method = "";
+        }
+      });
+      NIB.addEventListener("mouseover", function (event) {
+        NIB.style.borderColor = "rgb(4,170,109)";
+      });
+      CARD.addEventListener("mouseover", function (event) {
+        CARD.style.borderColor = "rgb(4,170,109)";
+      });
+      NIB.addEventListener("mouseout", function (event) {
+        if (!selectedNib) NIB.style.borderColor = "white";
+      });
+      CARD.addEventListener("mouseout", function (event) {
+        if (!selectedCard) CARD.style.borderColor = "white";
+      });
+      CARD.addEventListener("click", function (event) {
+        popup.classList.remove("show");
 
+        selectedCard = !selectedCard;
+        if (selectedCard) {
+          CARD.style.borderColor = "rgb(4,170,109)";
+          Ctext.style.color = "rgb(4,170,109)";
+          NIB.style.borderColor = "white";
+          Ntext.style.color = "white";
+          MBWAY.style.borderColor = "white";
+          selectedNib = 0;
+          method = "card";
+        }
+        if (!selectedCard) {
+          CARD.style.borderColor = "white";
+          method = "";
+          Ctext.style.color = "white";
+        }
+      });
+      MBWAY.addEventListener("click", function (event) {
+        popup.classList.remove("show");
+        selectedMBway = !selectedMBway;
+        if (selectedMBway) {
+          MBWAY.style.borderColor = "rgb(4,170,109)";
+          CARD.style.borderColor = "white";
+          Ctext.style.color = "white";
+          NIB.style.borderColor = "white";
+          Ntext.style.color = "white";
+          selectedCard = 0;
+          selectedNib = 0;
+          method = "mbway";
+        }
+        if (!selectedMBway) {
+          MBWAY.style.borderColor = "white";
+          method = "";
+        }
+      });
 
-        NIB.addEventListener("click",function(event){
-            
-            popup.classList.remove("show");
-            selectedNib = !selectedNib
-            if(selectedNib){
-                NIB.style.borderColor ="rgb(4,170,109)";
-                Ntext.style.color ="rgb(4,170,109)";
-                CARD.style.borderColor = "white";
-                Ctext.style.color = "white"
-                MBWAY.style.borderColor= "white"
-                selectedCard = 0
-                selectedMBway = 0
-                method = "nib"
-                
-            }
-            if(!selectedNib){
-                NIB.style.borderColor = "white";
-                Ntext.style.color = "white"
-                method = ""
-            }
-         })
-         NIB.addEventListener("mouseover",function(event){
-            NIB.style.borderColor ="rgb(4,170,109)";
-         })
-         CARD.addEventListener("mouseover",function(event){
-            CARD.style.borderColor ="rgb(4,170,109)";
-         })
-         NIB.addEventListener("mouseout",function(event){
-            if(!selectedNib)
-                NIB.style.borderColor ="white";
-         })
-         CARD.addEventListener("mouseout",function(event){
-            if(!selectedCard)
-                CARD.style.borderColor ="white";
-         })
-         CARD.addEventListener("click",function(event){
-            popup.classList.remove("show");
-            
-            selectedCard = !selectedCard
-            if(selectedCard){
-                CARD.style.borderColor = "rgb(4,170,109)";
-                Ctext.style.color = "rgb(4,170,109)";
-                NIB.style.borderColor = "white";
-                Ntext.style.color = "white"
-                MBWAY.style.borderColor = "white"
-                selectedNib = 0
-                method = "card"
-            }
-            if(!selectedCard){
-                CARD.style.borderColor = "white";
-                method = ""
-                Ctext.style.color = "white";
-            }
-         })
-         MBWAY.addEventListener("click",function(event){
-            
-            popup.classList.remove("show");
-            selectedMBway = !selectedMBway
-            if(selectedMBway){
-                MBWAY.style.borderColor ="rgb(4,170,109)";
-                CARD.style.borderColor = "white";
-                Ctext.style.color = "white"
-                NIB.style.borderColor= "white"
-                Ntext.style.color = "white"
-                selectedCard = 0
-                selectedNib = 0
-                method = "mbway"
-                
-            }
-            if(!selectedMBway){
-                MBWAY.style.borderColor = "white";
-                method = ""
-            }
-         })
+      var stripe = Stripe(
+        "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE"
+      );
 
-        
-        var stripe = Stripe(
-            "pk_live_51MT7ZiGsmOjGAvzGauMDnIifHaHb20Hk7j9oS2IxxIjJMEr3wPCtQlX6wgvcAIpSZ1sUj2UYtrBez5LF2GyeD3Cp009BarzXRE")
+      document
+        .getElementById("checkout")
+        .addEventListener("click", function (event) {
+          number_ticket_A = localStorage.getItem("ticketA") || 0;
+          number_ticket_C = localStorage.getItem("ticketC") || 0;
+          number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
+          console.log(number_ticket_A);
+          console.log(number_ticket_C);
+          if (number_ticket_C + number_ticket_A == 0) {
+            popup2.classList.toggle("show");
+            setTimeout(function () {
+              popup2.classList.remove("show");
+            }, 3000);
+          } else {
+            tickets = 1;
+          }
+          if (method == "card" && tickets) {
+            event.preventDefault();
 
-    document.getElementById("checkout").addEventListener("click", function (event) {
-    number_ticket_A = localStorage.getItem("ticketA") || 0;
-    number_ticket_C = localStorage.getItem("ticketC") || 0;
-    console.log(number_ticket_A);
-    console.log(number_ticket_C);
-    if (number_ticket_C + number_ticket_A == 0) {
-        popup2.classList.toggle("show");
-        setTimeout(function () {
-            popup2.classList.remove("show");
-        }, 3000);
-    } else {
-        tickets = 1;
-    }
-    if (method == "card" && tickets) {
-        event.preventDefault();
+            lineItems = [];
 
-        lineItems = [];
-
-        if (number_ticket_A > 0) {
-            lineItems.push({
+            if (number_ticket_A > 0) {
+              lineItems.push({
                 price: "price_1OlbQZGsmOjGAvzGdFiDaItt",
                 quantity: Number(number_ticket_A),
-            });
-        }
-        if (number_ticket_C > 0) {
-            lineItems.push({
+              });
+            }
+            if (number_ticket_C > 0) {
+              lineItems.push({
                 price: "price_1OlbRPGsmOjGAvzGO697i4gH",
                 quantity: Number(number_ticket_C),
-            });
-        }
+              });
+            }
 
-        stripe.redirectToCheckout({
+            stripe
+              .redirectToCheckout({
                 lineItems,
                 mode: "payment",
-                successUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
-                cancelUrl: "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
-            })
-            .then(function (result) {
+                successUrl:
+                  "https://filipebhenriques.github.io/Festa-do-Bucho/end.html",
+                cancelUrl:
+                  "https://filipebhenriques.github.io/Festa-do-Bucho/cancel.html",
+              })
+              .then(function (result) {
                 alert(result);
-            });
-    } else if (method == "nib" && tickets) {
-        var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
-        var C = number_ticket_C;
-        var A = number_ticket_A;
-        localStorage.setItem("value", preco);
-        localStorage.setItem("Criança", C);
-        localStorage.setItem("Adulto", A);
+              });
+          } else if (method == "nib" && tickets) {
+            var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
+            var C = number_ticket_C;
+            var A = number_ticket_A;
+            var CF = number_ticket_C_free;
+            localStorage.setItem("value", preco);
+            localStorage.setItem("Criança", C);
+            localStorage.setItem("Adulto", A);
+            localStorage.setItem("CriançaFree", CF);
 
-        window.location.href = "NIB.html";
-    } else if (method == "mbway" && tickets) {
-        /*var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
+            window.location.href = "NIB.html";
+          } else if (method == "mbway" && tickets) {
+            /*var preco = number_ticket_A * 21 + number_ticket_C * 12.5;
         var C = number_ticket_C;
         var A = number_ticket_A;
         localStorage.setItem("value", preco);
@@ -243,21 +291,11 @@
         console.error("Error:", error);
         // Handle errors appropriately
         });*/
-        window.location.href = "temporaryMBWAY.html"
-
-
-
-
-        
-    } else {
-        if (method == "")
-            popup.classList.toggle("show");
-
-    }
-});
-
-    
+            window.location.href = "temporaryMBWAY.html";
+          } else {
+            if (method == "") popup.classList.toggle("show");
+          }
+        });
     </script>
-</body>
-
+  </body>
 </html>
