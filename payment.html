@@ -110,7 +110,7 @@
         var number_ticket_A = localStorage.getItem("ticketA") || 0;
         var number_ticket_C = localStorage.getItem("ticketC") || 0;
         var number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
-
+        console.log("bilhetes",number_ticket_A,number_ticket_C,number_ticket_C_free)
         return {
           number_ticket_A,
           number_ticket_C,
@@ -204,7 +204,7 @@
               }
               if (number_ticket_C > 0) {
                 lineItems.push({
-                  price: "price_1OlbRPGsmOjGAvzGO697i4gH",
+                  price: "price_1OlbRPGsmOjGAvzGKwZ8GV1x",
                   quantity: Number(number_ticket_C),
                 });
               }
