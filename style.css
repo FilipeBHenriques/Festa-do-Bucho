@@ -69,7 +69,7 @@ body {
 
 .butt {
   cursor: pointer;
-  background-color: rgb(73, 65, 26);
+  background-color: rgb(253, 169, 42);
   border: 0.1vh solid;
   text-align: center;
   line-height: 0px;
@@ -93,8 +93,8 @@ body {
   flex-direction: column;
   align-items: center;
   height: auto;
-  margin-top: -5%;
-  margin-left: 22%;
+  margin-top: 0%;
+  margin-left: 0%;
 }
 
 .center2 {
@@ -102,7 +102,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: auto;
-  margin-top: 5%;
+  margin-top: 10%;
 }
 
 .button-group {
@@ -126,7 +126,7 @@ body {
   margin-right: 1px;
   padding: 5px 30px;
 
-  background-color: rgb(73, 65, 26);
+  background-color: rgb(253, 169, 42);
   border: 0.3vh solid;
   text-align: left;
   line-height: 0px;
@@ -135,11 +135,11 @@ body {
 }
 
 .payB:hover {
-  border-color: #04aa6d;
+  border-color: rgb(253, 169, 42);
 }
 
 .btn {
-  background-color: #04aa6d;
+  background-color: rgb(253, 169, 42);
   color: white;
   padding: 12px;
   margin: 10px 0;
@@ -161,7 +161,7 @@ body {
   border-color: white;
   border: 0.1vh solid;
 
-  background-color: rgb(73, 65, 26);
+  background-color: rgb(247, 164, 40);
 }
 
 .inputFree {
@@ -175,7 +175,7 @@ body {
   border-color: white;
   border: 0.1vh solid;
 
-  background-color: rgb(73, 65, 26);
+  background-color: rgb(247, 164, 40);
 }
 
 ::placeholder {
@@ -199,7 +199,7 @@ body {
   border: 0.1vh solid;
   border-color: white;
 
-  background-color: rgb(73, 65, 26);
+  background-color: rgb(247, 164, 40);
 }
 
 .bg1 {
@@ -209,8 +209,8 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: rgb(73, 65, 26);
-  background-image: url("bucho\ com\ circulos.jpeg");
+  background-color: rgb(253, 103, 2);
+  background-image: url("buchoBg.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -223,8 +223,8 @@ body {
   margin: 0;
   padding: 0;
 
-  background-color: rgb(73, 65, 26);
-  background-image: url("bucho\ sem\ circulos.jpg");
+  background-color: rgb(253, 103, 2);
+  background-image: url("buchoBg.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
