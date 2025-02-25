@@ -29,6 +29,7 @@
       >
         <div style="display: flex; align-items: center">
           <p
+            class="text-background"
             style="
               color: white;
               font-size: 1.4vh;
@@ -50,6 +51,7 @@
         </div>
         <div style="display: flex; align-items: center">
           <p
+            class="text-background"
             style="
               color: white;
               font-size: 1.4vh;
@@ -71,6 +73,7 @@
         </div>
         <div style="display: flex; align-items: center">
           <p
+            class="text-background"
             style="
               color: white;
               font-size: 1.4vh;
@@ -92,6 +95,7 @@
         </div>
       </div>
       <p
+        class="text-background"
         style="
           color: white;
           font-size: 1.4vh;
@@ -125,7 +129,12 @@
           var number_ticket_C = document.getElementById("inputC").value || 0;
           var number_ticket_Free =
             document.getElementById("inputFree").value || 0;
-          console.log("tickets",number_ticket_A,number_ticket_C,number_ticket_Free)
+          console.log(
+            "tickets",
+            number_ticket_A,
+            number_ticket_C,
+            number_ticket_Free
+          );
           if (
             Number(number_ticket_C) +
               Number(number_ticket_A) +
