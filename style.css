@@ -81,6 +81,10 @@ body {
   /* reset your old margin */
 }
 
+.butt:hover {
+  border-color: rgb(253, 80, 0);
+}
+
 .containerB {
   display: flex;
   flex-direction: column;
@@ -135,7 +139,7 @@ body {
 }
 
 .payB:hover {
-  border-color: rgb(253, 169, 42);
+  border-color: rgb(253, 80, 0);
 }
 
 .btn {
@@ -283,6 +287,12 @@ body {
   animation: fadeIn 1s;
 }
 
+.text-background {
+  background-color: rgb(247, 164, 40);
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
   from {
@@ -419,5 +429,11 @@ iPhone X || 375 x 812 || Default, Portrait and Landscape
   .center {
     transform-origin: center;
     transform: scale(0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .center2 {
+    margin-top: 20%;
   }
 }
