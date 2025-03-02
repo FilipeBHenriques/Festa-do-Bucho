@@ -49,8 +49,17 @@
 
       /* Form styles */
       label {
-        font-size: 1.5vh;
-        margin-bottom: 5px;
+        display: inline-block; /* Ensures proper spacing */
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.7
+        ); /* Semi-transparent dark background */
+        color: white; /* Ensures readability */
+        padding: 5px 10px; /* Adds spacing inside the label */
+        border-radius: 5px; /* Soft rounded edges */
+        font-size: 1.2vh; /* Adjust size as needed */
       }
 
       input[type="tel"],
@@ -73,20 +82,20 @@
         outline: none;
         border-color: #4caf50;
       }
-
       button {
-        background-color: rgb(4, 170, 109);
+        background-color: rgb(253, 169, 42); /* New main color */
         color: white;
         cursor: pointer;
+
         transition: background-color 0.3s ease;
       }
 
       button:hover {
-        background-color: rgb(2, 141, 91);
+        background-color: rgb(220, 140, 35); /* Darker shade on hover */
       }
 
       button:active {
-        background-color: rgb(4, 120, 80);
+        background-color: rgb(190, 120, 30); /* Even darker shade on click */
       }
 
       /* Mobile responsiveness */
@@ -109,8 +118,9 @@
   <body class="bg2">
     <div class="center2">
       <div>
-        <p>Pagamento MBWay<br />Total: <span id="displayTotal">0</span>€:</p>
-
+        <div class="text-background">
+          <p>Pagamento MBWay<br />Total: <span id="displayTotal">0</span>€:</p>
+        </div>
         <!-- Form for collecting phone number and email -->
         <form id="mbwayForm" action="" method="post">
           <div style="margin-bottom: 10px">

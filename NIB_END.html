@@ -1,14 +1,11 @@
 <html>
+  <head>
+    <title>Festa do Bucho</title>
+  </head>
 
-<head>
-    
-    <title>
-        Festa do Bucho
-    </title>
-</head>
-
-<body style="background-color: rgb(174, 179, 35);">
-    <div style="
+  <body style="background-color: rgb(255, 136, 0)">
+    <div
+      style="
         width: 70vmin;
         height: 70vmin;
         position: absolute;
@@ -16,21 +13,31 @@
         left: 50%;
         margin-top: -25vmin;
         margin-left: -25vmin;
-        background:rgb(73, 65, 26);
+        background: rgb(253, 169, 42);
         border: 2px solid white;
         border-radius: 25px;
-      ">
-      <h1 style="color: white; text-align: center;">Obrigado para Proceder ao Pagamento basta realizar a transferência para o NIB</h1>
-      <br>
-      <h2 style="color: white; text-align: left; margin: 20px;">  NIB : 0035 0923 0000 4517 63005</h2>
-      <h2 style="color: white; text-align: left;margin: 20px;"> Valor:  <span id="myText"></span> </h2>
-      <h2 style="color: white; text-align: center;margin: 30px;"> No dia do evento, 16 de Março, dirija-se à zona da organização, para adquirir as pulseiras.</h2>
-    
+      "
+    >
+      <h1 style="color: white; text-align: center">
+        Obrigado para Proceder ao Pagamento basta realizar a transferência para
+        o NIB
+      </h1>
+      <br />
+      <h2 style="color: white; text-align: left; margin: 20px">
+        NIB : 0035 0923 0000 4517 63005
+      </h2>
+      <h2 style="color: white; text-align: left; margin: 20px">
+        Valor: <span id="myText"></span>
+      </h2>
+      <h2 style="color: white; text-align: center; margin: 30px">
+        No dia do evento, 16 de Março, dirija-se à zona da organização, para
+        adquirir as pulseiras.
+      </h2>
     </div>
     <script>
-        var preco = localStorage.getItem("value")
-        
-        
-        document.getElementById("myText").innerHTML = preco;
+      var preco = localStorage.getItem("value");
+
+      document.getElementById("myText").innerHTML = preco;
     </script>
-</body>
+  </body>
+</html>

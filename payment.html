@@ -26,9 +26,11 @@
         >
       </div>
       <div class="containerB">
-        <p style="color: white; font-size: 2vh; text-align: center">
-          Métodos de pagamento <br />Total: <span id="displayTotal">0</span>€:
-        </p>
+        <div class="text-background">
+          <p style="color: white; font-size: 2vh; text-align: center">
+            Métodos de pagamento <br />Total: <span id="displayTotal">0</span>€:
+          </p>
+        </div>
         <div class="button-group">
           <button
             class="payB"
@@ -110,7 +112,12 @@
         var number_ticket_A = localStorage.getItem("ticketA") || 0;
         var number_ticket_C = localStorage.getItem("ticketC") || 0;
         var number_ticket_C_free = localStorage.getItem("ticketFree") || 0;
-        console.log("bilhetes",number_ticket_A,number_ticket_C,number_ticket_C_free)
+        console.log(
+          "bilhetes",
+          number_ticket_A,
+          number_ticket_C,
+          number_ticket_C_free
+        );
         return {
           number_ticket_A,
           number_ticket_C,
@@ -123,8 +130,8 @@
         popup.classList.remove("show");
         selectedNib = !selectedNib;
         if (selectedNib) {
-          NIB.style.borderColor = "rgb(4,170,109)";
-          Ntext.style.color = "rgb(4,170,109)";
+          NIB.style.borderColor = "rgb(253, 80, 0)";
+          Ntext.style.color = "rgb(253, 80, 0)";
           CARD.style.borderColor = "white";
           Ctext.style.color = "white";
           MBWAY.style.borderColor = "white";
@@ -142,8 +149,8 @@
         popup.classList.remove("show");
         selectedCard = !selectedCard;
         if (selectedCard) {
-          CARD.style.borderColor = "rgb(4,170,109)";
-          Ctext.style.color = "rgb(4,170,109)";
+          CARD.style.borderColor = "rgb(253, 80, 0)";
+          Ctext.style.color = "rgb(253, 80, 0)";
           NIB.style.borderColor = "white";
           Ntext.style.color = "white";
           MBWAY.style.borderColor = "white";
@@ -160,7 +167,7 @@
         popup.classList.remove("show");
         selectedMBway = !selectedMBway;
         if (selectedMBway) {
-          MBWAY.style.borderColor = "rgb(4,170,109)";
+          MBWAY.style.borderColor = "rgb(253, 80, 0)";
           CARD.style.borderColor = "white";
           Ctext.style.color = "white";
           NIB.style.borderColor = "white";
